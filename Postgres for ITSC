@@ -1,0 +1,674 @@
+Setup Post Gres
+
+Gotcha! Here’s a step-by-step guide to **run the Node.js backend with a local PostgreSQL instance** on your machine.
+
+---
+
+### Step 1: Install PostgreSQL locally
+
+* **Windows:** Use the [PostgreSQL Installer](https://www.postgresql.org/download/windows/)
+* **Mac:** Use [Postgres.app](https://postgresapp.com/) or `brew install postgresql`
+* **Linux:** Use your package manager, e.g., `sudo apt install postgresql`
+
+---
+
+### Step 2: Start PostgreSQL service
+
+Make sure PostgreSQL server is running:
+
+* On Linux/Mac:
+
+  ```bash
+  sudo service postgresql start
+  ```
+* On Windows, it usually runs automatically after install. You can check Services or use pgAdmin.
+
+---
+
+### Step 3: Create a database and user
+
+Open your terminal and run:
+
+```bash
+psql -U postgres
+```
+
+Inside psql shell, create a new DB and user:
+
+```sql
+CREATE DATABASE itsc_db;
+CREATE USER itsc_user WITH ENCRYPTED PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE itsc_db TO itsc_user;
+```
+
+Exit psql with `\q`
+
+---
+
+### Step 4: Update `.env` file in your project folder
+
+Create a file called `.env` in the same folder as `index.js`:
+
+```
+PGHOST=localhost
+PGUSER=itsc_user
+PGPASSWORD=your_password
+PGDATABASE=itsc_db
+PGPORT=5432
+PORT=3000
+```
+
+Replace `your_password` with what you set earlier.
+
+---
+
+### Step 5: Run the backend app
+
+In your project folder, make sure dependencies are installed:
+
+```bash
+npm install
+```
+
+Then run the app:
+
+```bash
+node index.js
+```
+
+You should see:
+
+```
+ITSC backend running on port 3000
+```
+
+---
+
+### Step 6: Test API endpoints
+
+Open a browser or API tool like Postman and try:
+
+* `GET http://localhost:3000/services` — should return an empty array initially.
+* `POST http://localhost:3000/services` with JSON body:
+
+```json
+{
+  "name": "Email Support",
+  "description": "Support for company email issues",
+  "category": "Support",
+  "status": "active"
+}
+```
+
+* Then GET again to see the new service.
+
+---
+
+### Troubleshooting Tips
+
+* If connection fails, verify PostgreSQL is running and credentials in `.env` are correct.
+* Check firewall or port conflicts.
+* Use `pgAdmin` or `psql` to manually verify the database and tables.
+
+---
+
+Want me to help you set this up in Docker instead? Or maybe add authentication? Just ask!
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Containerised setup
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Absolutely! Running PostgreSQL in a container locally is a great approach—easy to set up, isolated, and portable.
+
+Here’s how you can run a **PostgreSQL container locally** using Docker:
+
+---
+
+### Step 1: Make sure you have Docker installed
+
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) for Windows/Mac
+* On Linux, install Docker from your distro’s package manager.
+
+---
+
+### Step 2: Run PostgreSQL container
+
+Open your terminal and run:
+
+```bash
+docker run --name itsc-postgres -e POSTGRES_USER=itsc_user -e POSTGRES_PASSWORD=your_password -e POSTGRES_DB=itsc_db -p 5432:5432 -d postgres
+```
+
+* `--name itsc-postgres` gives the container a name
+* `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB` initialize the database
+* `-p 5432:5432` exposes container port 5432 to your localhost port 5432
+* `-d` runs the container in detached mode
+* `postgres` is the official PostgreSQL image
+
+---
+
+### Step 3: Verify the container is running
+
+```bash
+docker ps
+```
+
+You should see `itsc-postgres` running and listening on port 5432.
+
+---
+
+### Step 4: Connect your backend app to this containerized DB
+
+Use the same `.env` config as before:
+
+```
+PGHOST=localhost
+PGUSER=itsc_user
+PGPASSWORD=your_password
+PGDATABASE=itsc_db
+PGPORT=5432
+PORT=3000
+```
+
+Make sure the password matches what you set in the Docker run command.
+
+---
+
+### Step 5: Run your Node.js backend app
+
+In your project folder:
+
+```bash
+node index.js
+```
+
+---
+
+### Optional: Access PostgreSQL inside container
+
+If you want to connect to the container and use `psql` inside it:
+
+```bash
+docker exec -it itsc-postgres psql -U itsc_user -d itsc_db
+```
+
+---
+
+### Optional: Persist data between container restarts
+
+By default, container data is ephemeral. To keep your data, use a Docker volume:
+
+```bash
+docker run --name itsc-postgres -e POSTGRES_USER=itsc_user -e POSTGRES_PASSWORD=your_password -e POSTGRES_DB=itsc_db -p 5432:5432 -v pgdata:/var/lib/postgresql/data -d postgres
+```
+
+This mounts a volume named `pgdata` to persist database files.
+
+---
+
+If you want, I can help you write a **Docker Compose** file to orchestrate both your backend and the PostgreSQL container together. Interested?
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Creating a comprehensive data model for an **ITSC (Information Technology Services Center)** product database requires understanding the core entities related to IT services and products. Typically, an ITSC product database would include entities like products, services, customers, orders, inventory, users, and support tickets. The model needs to capture the relationships between these entities, define attributes for each, and represent how data flows and interacts.
+
+### 1. **Entities**
+
+Here are some primary entities for an ITSC product database:
+
+#### 1.1 **Products**
+
+This entity holds all the details about the IT products or solutions offered by the center.
+
+* **ProductID** (PK)
+* **ProductName**
+* **ProductDescription**
+* **Category** (e.g., hardware, software, networking)
+* **Price**
+* **StockQuantity**
+* **SKU (Stock Keeping Unit)**
+* **SupplierID** (FK, to Supplier table)
+* **WarrantyPeriod** (in months)
+* **LaunchDate**
+* **Status** (active, discontinued)
+
+#### 1.2 **Customers**
+
+This entity contains the customer details (e.g., users requesting IT products or services).
+
+* **CustomerID** (PK)
+* **FirstName**
+* **LastName**
+* **Email**
+* **Phone**
+* **Address**
+* **CustomerType** (e.g., individual, business, government)
+* **DateJoined**
+
+#### 1.3 **Orders**
+
+Represents the purchase order made by a customer for IT products/services.
+
+* **OrderID** (PK)
+* **CustomerID** (FK, to Customer table)
+* **OrderDate**
+* **ShippingAddress**
+* **OrderStatus** (pending, completed, canceled)
+* **TotalAmount**
+* **PaymentMethod**
+* **TrackingNumber** (for shipping, optional)
+
+#### 1.4 **OrderItems**
+
+An order can contain multiple products. This table holds individual product details for each order.
+
+* **OrderItemID** (PK)
+* **OrderID** (FK, to Orders table)
+* **ProductID** (FK, to Products table)
+* **Quantity**
+* **UnitPrice**
+* **TotalPrice** (Quantity * UnitPrice)
+
+#### 1.5 **Inventory**
+
+Tracks the available stock of products in the ITSC database.
+
+* **InventoryID** (PK)
+* **ProductID** (FK, to Products table)
+* **QuantityAvailable**
+* **LastRestockedDate**
+* **ReorderLevel** (minimum stock before restocking)
+* **RestockQuantity** (quantity to restock)
+
+#### 1.6 **Suppliers**
+
+Contains information about the suppliers from whom products are sourced.
+
+* **SupplierID** (PK)
+* **SupplierName**
+* **ContactName**
+* **Email**
+* **Phone**
+* **Address**
+
+#### 1.7 **SupportTickets**
+
+Tracks the support or service requests by customers.
+
+* **TicketID** (PK)
+* **CustomerID** (FK, to Customer table)
+* **IssueDescription**
+* **Priority** (low, medium, high)
+* **TicketStatus** (open, closed, in-progress)
+* **AssignedTo** (Support Agent ID or team)
+* **DateCreated**
+* **DateResolved**
+* **Resolution**
+
+#### 1.8 **Users**
+
+Holds data about users (employees, admins, or agents) working within the ITSC.
+
+* **UserID** (PK)
+* **Username**
+* **Password** (hashed)
+* **Role** (admin, support agent, manager)
+* **FirstName**
+* **LastName**
+* **Email**
+* **Phone**
+
+#### 1.9 **Service Contracts**
+
+For any IT services or extended warranty agreements.
+
+* **ContractID** (PK)
+* **CustomerID** (FK, to Customer table)
+* **ServiceType** (e.g., IT support, hardware maintenance)
+* **StartDate**
+* **EndDate**
+* **RenewalDate**
+* **ContractStatus** (active, expired, canceled)
+* **Cost**
+
+#### 1.10 **Payments**
+
+This entity tracks payment information.
+
+* **PaymentID** (PK)
+* **OrderID** (FK, to Orders table)
+* **PaymentDate**
+* **Amount**
+* **PaymentMethod** (e.g., credit card, PayPal, bank transfer)
+* **PaymentStatus** (pending, completed, failed)
+
+### 2. **Relationships**
+
+Here are the key relationships between the entities:
+
+* **Products** can be supplied by **Suppliers** (many-to-one: many products can come from one supplier).
+* **Customers** can place multiple **Orders** (one-to-many).
+* Each **Order** can contain multiple **OrderItems** (one-to-many).
+* **Products** are tracked in **Inventory** (one-to-one or one-to-many, depending on stock management).
+* **SupportTickets** are created by **Customers** and assigned to **Users** (agents or admins) for resolution (one-to-many, with many-to-many between Users and SupportTickets if agents can work on multiple tickets).
+* **Payments** are linked to **Orders** (one-to-one or one-to-many, depending on payment methods).
+* **Service Contracts** are linked to **Customers** and may include multiple **Service Types** (one-to-many).
+
+### 3. **Additional Considerations**
+
+* **Audit Logs**: Keep track of changes to data such as price changes, order modifications, or stock updates.
+* **Discounts/Promotions**: You might need a table to manage product discounts, seasonal offers, or customer-specific pricing.
+* **Reviews/Feedback**: To capture customer feedback for each product or service.
+* **Shipping/Logistics**: Track shipping providers, delivery dates, and order status updates for shipping.
+* **Subscriptions**: For recurring billing or service contracts, consider a subscription table to manage renewals.
+
+### 4. **ER Diagram**
+
+I can provide a rough ER diagram based on this schema. Would you like me to generate one for you?
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Here's a PostgreSQL schema based on the ITSC product database data model we've discussed. This will include tables for `Products`, `Customers`, `Orders`, `OrderItems`, `Inventory`, `Suppliers`, `SupportTickets`, `Users`, `ServiceContracts`, and `Payments`, along with the necessary foreign key relationships.
+
+```sql
+-- Create the Products table
+CREATE TABLE Products (
+    ProductID SERIAL PRIMARY KEY,
+    ProductName VARCHAR(255) NOT NULL,
+    ProductDescription TEXT,
+    Category VARCHAR(100),
+    Price DECIMAL(10, 2) NOT NULL,
+    StockQuantity INT NOT NULL,
+    SKU VARCHAR(100) UNIQUE,
+    SupplierID INT REFERENCES Suppliers(SupplierID),
+    WarrantyPeriod INT, -- Warranty in months
+    LaunchDate DATE,
+    Status VARCHAR(50) CHECK (Status IN ('active', 'discontinued'))
+);
+
+-- Create the Suppliers table
+CREATE TABLE Suppliers (
+    SupplierID SERIAL PRIMARY KEY,
+    SupplierName VARCHAR(255) NOT NULL,
+    ContactName VARCHAR(255),
+    Email VARCHAR(100),
+    Phone VARCHAR(50),
+    Address TEXT
+);
+
+-- Create the Customers table
+CREATE TABLE Customers (
+    CustomerID SERIAL PRIMARY KEY,
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    Phone VARCHAR(50),
+    Address TEXT,
+    CustomerType VARCHAR(50) CHECK (CustomerType IN ('individual', 'business', 'government')),
+    DateJoined TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create the Orders table
+CREATE TABLE Orders (
+    OrderID SERIAL PRIMARY KEY,
+    CustomerID INT REFERENCES Customers(CustomerID),
+    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ShippingAddress TEXT,
+    OrderStatus VARCHAR(50) CHECK (OrderStatus IN ('pending', 'completed', 'canceled')),
+    TotalAmount DECIMAL(10, 2) NOT NULL,
+    PaymentMethod VARCHAR(50),
+    TrackingNumber VARCHAR(100)
+);
+
+-- Create the OrderItems table (many-to-many between Orders and Products)
+CREATE TABLE OrderItems (
+    OrderItemID SERIAL PRIMARY KEY,
+    OrderID INT REFERENCES Orders(OrderID),
+    ProductID INT REFERENCES Products(ProductID),
+    Quantity INT NOT NULL,
+    UnitPrice DECIMAL(10, 2) NOT NULL,
+    TotalPrice DECIMAL(10, 2) NOT NULL
+);
+
+-- Create the Inventory table
+CREATE TABLE Inventory (
+    InventoryID SERIAL PRIMARY KEY,
+    ProductID INT REFERENCES Products(ProductID),
+    QuantityAvailable INT NOT NULL,
+    LastRestockedDate DATE,
+    ReorderLevel INT,
+    RestockQuantity INT
+);
+
+-- Create the Users table
+CREATE TABLE Users (
+    UserID SERIAL PRIMARY KEY,
+    Username VARCHAR(100) UNIQUE NOT NULL,
+    Password TEXT NOT NULL, -- store hashed passwords
+    Role VARCHAR(50) CHECK (Role IN ('admin', 'support_agent', 'manager')),
+    FirstName VARCHAR(255) NOT NULL,
+    LastName VARCHAR(255) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Phone VARCHAR(50)
+);
+
+-- Create the SupportTickets table
+CREATE TABLE SupportTickets (
+    TicketID SERIAL PRIMARY KEY,
+    CustomerID INT REFERENCES Customers(CustomerID),
+    IssueDescription TEXT NOT NULL,
+    Priority VARCHAR(50) CHECK (Priority IN ('low', 'medium', 'high')),
+    TicketStatus VARCHAR(50) CHECK (TicketStatus IN ('open', 'closed', 'in-progress')),
+    AssignedTo INT REFERENCES Users(UserID),
+    DateCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    DateResolved TIMESTAMP,
+    Resolution TEXT
+);
+
+-- Create the ServiceContracts table
+CREATE TABLE ServiceContracts (
+    ContractID SERIAL PRIMARY KEY,
+    CustomerID INT REFERENCES Customers(CustomerID),
+    ServiceType VARCHAR(100),
+    StartDate DATE,
+    EndDate DATE,
+    RenewalDate DATE,
+    ContractStatus VARCHAR(50) CHECK (ContractStatus IN ('active', 'expired', 'canceled')),
+    Cost DECIMAL(10, 2) NOT NULL
+);
+
+-- Create the Payments table
+CREATE TABLE Payments (
+    PaymentID SERIAL PRIMARY KEY,
+    OrderID INT REFERENCES Orders(OrderID),
+    PaymentDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Amount DECIMAL(10, 2) NOT NULL,
+    PaymentMethod VARCHAR(50) CHECK (PaymentMethod IN ('credit_card', 'paypal', 'bank_transfer')),
+    PaymentStatus VARCHAR(50) CHECK (PaymentStatus IN ('pending', 'completed', 'failed'))
+);
+
+-- Create index for better search performance on frequently queried columns
+CREATE INDEX idx_products_category ON Products(Category);
+CREATE INDEX idx_orders_customer_id ON Orders(CustomerID);
+CREATE INDEX idx_orders_order_status ON Orders(OrderStatus);
+CREATE INDEX idx_inventory_product_id ON Inventory(ProductID);
+CREATE INDEX idx_tickets_customer_id ON SupportTickets(CustomerID);
+```
+
+### Key Points:
+
+1. **Foreign Keys**:
+
+   * `Products` has a foreign key reference to `Suppliers`.
+   * `Orders` has a foreign key reference to `Customers`.
+   * `OrderItems` has foreign key references to both `Orders` and `Products`.
+   * `Inventory` has a foreign key reference to `Products`.
+   * `SupportTickets` has foreign key references to `Customers` and `Users`.
+   * `ServiceContracts` has a foreign key reference to `Customers`.
+   * `Payments` has a foreign key reference to `Orders`.
+
+2. **Check Constraints**:
+
+   * The `Status` field in `Products` can only have the values `active` or `discontinued`.
+   * `OrderStatus`, `TicketStatus`, `Priority`, and `PaymentStatus` have predefined valid values using the `CHECK` constraint.
+   * `CustomerType` in the `Customers` table is restricted to `individual`, `business`, or `government`.
+
+3. **Indexing**:
+
+   * Added indexes on common query fields like `Category` in `Products`, `CustomerID` in `Orders`, and `OrderStatus` to optimize performance.
+
+### Next Steps:
+
+* Ensure that passwords are hashed securely when inserting data into the `Users` table.
+* Populate the `Suppliers` table with actual supplier data before adding products.
+* Consider adding triggers or additional constraints depending on your business rules (e.g., preventing order cancellations after shipping).
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To make the ITSC product database more comprehensive, there are a few additional data points that could be useful for better tracking and management of your products, customers, orders, support tickets, and other entities. Below are some potential **missing data** elements that could be added, along with their descriptions:
+
+### Missing Data and Additional Fields:
+
+#### 1. **Products Table:**
+
+* **ProductImageURL**: Link to the product image.
+* **Brand**: The brand or manufacturer of the product.
+* **ProductVersion**: For software products, you may want to track the version.
+* **MinimumOrderQuantity**: Minimum quantity a customer can order.
+* **SupplierContactInfo**: Contact information for the specific supplier associated with the product.
+
+#### 2. **Customers Table:**
+
+* **DateOfBirth**: For personalized customer experiences or age-based offers.
+* **Gender**: Some businesses capture gender information for segmentation or targeted marketing.
+* **LoyaltyPoints**: Points earned by the customer, if there's a loyalty program.
+* **PreferredLanguage**: Language preferences for customer service or communication.
+* **AccountStatus**: To track if the customer account is active, suspended, or inactive.
+
+#### 3. **Orders Table:**
+
+* **DiscountApplied**: To track any discounts applied to the order (could be in percentage or amount).
+* **TaxAmount**: To capture the tax applied to the order.
+* **ShippingMethod**: To track which shipping method was used (e.g., standard, expedited).
+* **EstimatedDeliveryDate**: Expected date of delivery.
+* **PaymentStatus**: Status of payment (pending, completed, failed).
+* **CouponCode**: If any coupon or promotional code was applied.
+
+#### 4. **OrderItems Table:**
+
+* **DiscountApplied**: To capture the discount applied to individual order items.
+* **TotalTaxAmount**: To capture the tax applied to individual order items.
+
+#### 5. **Inventory Table:**
+
+* **Location**: If your business operates in multiple warehouses or stores, track the location of the inventory.
+* **SupplierCost**: The cost price from the supplier for the product.
+* **LastUpdated**: Date when the inventory was last updated.
+
+#### 6. **Suppliers Table:**
+
+* **SupplierRating**: A rating or score for the supplier (e.g., based on product quality or delivery time).
+* **PaymentTerms**: The terms of payment, such as net 30, net 60, etc.
+* **ContractStartDate**: The date when the supplier contract started.
+* **ContractEndDate**: The date when the supplier contract is due to end.
+
+#### 7. **SupportTickets Table:**
+
+* **IssueType**: Type of issue, such as "software bug", "hardware failure", etc.
+* **SeverityLevel**: Further categorize the severity of the issue (e.g., critical, major, minor).
+* **TicketPriority**: An optional field that can be used to indicate the urgency level of the ticket.
+* **SupportTeamAssigned**: The support team or department handling the ticket.
+* **TimeToResolve**: The actual time taken to resolve the ticket (could be calculated from `DateCreated` and `DateResolved`).
+
+#### 8. **ServiceContracts Table:**
+
+* **ServiceLevelAgreement (SLA)**: The level of service provided, such as 24/7, business hours only, etc.
+* **ServiceLocation**: The location where the service is provided (if applicable).
+* **ContractDuration**: The length of the contract (could be in months or years).
+* **RenewalStatus**: Whether the contract is eligible for renewal.
+
+#### 9. **Payments Table:**
+
+* **PaymentReferenceNumber**: A reference number or transaction ID for the payment.
+* **BillingAddress**: Address where the payment is billed.
+* **PaymentTransactionStatus**: A detailed status (e.g., pending, failed, refunded).
+* **Currency**: The currency used for the payment, particularly useful for international customers.
+* **RefundAmount**: If the payment has been partially refunded.
+
+---
+
+### Example Full Dataset (Sample Records)
+
+Below is an example of what a sample dataset might look like for your ITSC product database. The data is just for illustration, and you can fill in with real values as required.
+
+#### **Products:**
+
+| ProductID | ProductName    | ProductDescription       | Category   | Price   | StockQuantity | SKU     | SupplierID | WarrantyPeriod | LaunchDate | Status       |
+| --------- | -------------- | ------------------------ | ---------- | ------- | ------------- | ------- | ---------- | -------------- | ---------- | ------------ |
+| 1         | Laptop X2000   | High-performance laptop  | Hardware   | 1200.00 | 50            | LPX2000 | 1          | 24             | 2024-01-15 | active       |
+| 2         | Software A3    | Productivity software    | Software   | 200.00  | 150           | SA3     | 2          | 12             | 2023-10-01 | active       |
+| 3         | Router Pro 500 | Advanced wireless router | Networking | 350.00  | 100           | RP500   | 1          | 36             | 2023-05-10 | discontinued |
+
+#### **Customers:**
+
+| CustomerID | FirstName | LastName | Email                                                     | Phone    | Address                | CustomerType | DateJoined |
+| ---------- | --------- | -------- | --------------------------------------------------------- | -------- | ---------------------- | ------------ | ---------- |
+| 1          | John      | Doe      | [john.doe@example.com](mailto:john.doe@example.com)       | 555-1234 | 123 Main St, City, 123 | individual   | 2024-02-15 |
+| 2          | Sarah     | Smith    | [sarah.smith@example.com](mailto:sarah.smith@example.com) | 555-5678 | 456 Oak St, Town, 456  | business     | 2023-11-10 |
+
+#### **Orders:**
+
+| OrderID | CustomerID | OrderDate           | ShippingAddress   | OrderStatus | TotalAmount | PaymentMethod | TrackingNumber |
+| ------- | ---------- | ------------------- | ----------------- | ----------- | ----------- | ------------- | -------------- |
+| 1       | 1          | 2024-02-15 12:30:00 | 123 Main St, City | completed   | 1200.00     | Credit Card   | XYZ123456789   |
+| 2       | 2          | 2023-11-15 15:45:00 | 456 Oak St, Town  | pending     | 200.00      | PayPal        | NULL           |
+
+#### **OrderItems:**
+
+| OrderItemID | OrderID | ProductID | Quantity | UnitPrice | TotalPrice |
+| ----------- | ------- | --------- | -------- | --------- | ---------- |
+| 1           | 1       | 1         | 1        | 1200.00   | 1200.00    |
+| 2           | 2       | 2         | 2        | 100.00    | 200.00     |
+
+#### **SupportTickets:**
+
+| TicketID | CustomerID | IssueDescription  | Priority | TicketStatus | AssignedTo | DateCreated         | DateResolved        | Resolution              |
+| -------- | ---------- | ----------------- | -------- | ------------ | ---------- | ------------------- | ------------------- | ----------------------- |
+| 1        | 1          | Laptop won't boot | high     | closed       | 3          | 2024-02-16 10:00:00 | 2024-02-16 14:00:00 | Replaced motherboard    |
+| 2        | 2          | Software crashes  | medium   | in-progress  | 2          | 2023-11-16 16:30:00 | NULL                | Pending software update |
+
+#### **Payments:**
+
+| PaymentID | OrderID | PaymentDate         | Amount  | PaymentMethod | PaymentStatus | PaymentReferenceNumber |
+| --------- | ------- | ------------------- | ------- | ------------- | ------------- | ---------------------- |
+| 1         | 1       | 2024-02-15 12:45:00 | 1200.00 | Credit Card   | completed     | TRX123456789           |
+| 2         | 2       | 2023-11-15 16:00:00 | 200.00  | PayPal        | pending       | TRX987654321           |
+
+---
+
+### How to Use this Dataset:
+
+1. **Insert Data**:
+
+   * You can use these sample records as templates to populate your database using `INSERT INTO` commands.
+2. **Data Population**:
+
+   * Populate the `Products`, `Suppliers`, and other core tables with your actual product catalog, customer information, etc.
+3. **Relationships**:
+
+   * Ensure the correct foreign keys are respected, and data is linked appropriately across tables.
+4. **Customizing**:
+
+   * You can extend the model further by adding additional tables for promotions, marketing campaigns, or even track system events (e.g., logging).
+
+Would you like help with populating specific tables with more data or any other customizations for your use case?
