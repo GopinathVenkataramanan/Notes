@@ -1,0 +1,84 @@
+Great! Here are some sample `INSERT` statements to populate each of the tables with realistic starter data. These will help you test or demo the ITSC product schema.
+
+---
+
+## ✅ Sample `INSERT` Statements
+
+---
+
+### 🧩 1. `config_settings`
+
+```sql
+-- Sample configuration settings
+INSERT INTO config_settings (key, value, value_type, description, updated_by)
+VALUES
+('email.smtp_host', 'smtp.example.com', 'string', 'SMTP server host for sending emails', 'admin'),
+('email.smtp_port', '587', 'int', 'SMTP server port', 'admin'),
+('ticket.auto_assign', 'true', 'boolean', 'Auto-assign tickets to available agents', 'admin'),
+('sla.default_hours', '72', 'int', 'Default SLA response time in hours', 'admin'),
+('features.enable_chatbot', 'false', 'boolean', 'Enable AI-powered chatbot support', 'product_owner');
+```
+
+---
+
+### 📋 2. `audit_logs`
+
+```sql
+-- Sample audit logs representing a config change
+INSERT INTO audit_logs (action_type, table_name, record_id, changed_by, old_data, new_data, description)
+VALUES
+('UPDATE', 'config_settings', '1', 'admin',
+ '{"value": "smtp.oldhost.com", "key": "email.smtp_host"}',
+ '{"value": "smtp.example.com", "key": "email.smtp_host"}',
+ 'Updated SMTP server host for outgoing emails');
+```
+
+---
+
+### 🛠️ 3. `system_logs`
+
+```sql
+-- Sample system-level logs
+INSERT INTO system_logs (log_level, message, context, source)
+VALUES
+('ERROR', 'Failed to connect to SMTP server', '{"host": "smtp.example.com", "port": 587}', 'notification-service'),
+('INFO', 'Background job executed successfully', '{"job_id": "bg_109", "duration_ms": 132}', 'scheduler'),
+('WARN', 'Disk usage exceeded 85%', '{"disk": "/dev/sda1", "usage": "88%"}', 'monitoring-service'),
+('DEBUG', 'User login attempt debug info', '{"username": "jdoe"}', 'auth-service');
+```
+
+---
+
+### 🔧 4. `log_settings` (Optional Table)
+
+```sql
+-- Optional: configure log level per component
+INSERT INTO log_settings (component, log_level, is_enabled)
+VALUES
+('auth-service', 'INFO', TRUE),
+('notification-service', 'ERROR', TRUE),
+('scheduler', 'DEBUG', FALSE),
+('api-gateway', 'WARN', TRUE);
+```
+
+---
+
+## ✅ You can test it like this:
+
+```sql
+-- Check current config settings
+SELECT * FROM config_settings;
+
+-- View recent audit logs
+SELECT * FROM audit_logs ORDER BY changed_at DESC LIMIT 10;
+
+-- View latest error logs
+SELECT * FROM system_logs WHERE log_level = 'ERROR' ORDER BY logged_at DESC;
+
+-- Check which services have logging enabled
+SELECT * FROM log_settings WHERE is_enabled = TRUE;
+```
+
+---
+
+Would you like me to provide a combined `.sql` dump of this entire schema + inserts so you can import it directly into your PostgreSQL environment?
