@@ -1,0 +1,111 @@
+ITSM Platform Architecture (SaaS & On-Prem)
+
++-----------------------------------------------+
+|                CLIENT USER                     |
+|                                               |
+|  (Browser)                                    |
+|    |                                          |
+|    v                                          |
+|  +-------------------+                         |
+|  |   React Frontend   |                         |
+|  |  (SPA, NGINX)      |                         |
+|  +-------------------+                         |
+|          |                                      |
+|          | REST/GraphQL API                      |
+|          v                                      |
+|  +------------------------+                     |
+|  |    Backend API Server  | <--------------------+
+|  | (Node.js/NestJS/etc.)  |                      |
+|  +------------------------+                      |
+|          |                                       |
+|          | SQL / DB Queries                      |
+|          v                                       |
+|  +-------------------------+                     |
+|  |      PostgreSQL DB      | <---+                |
+|  | (Single or Multi-Tenant)|     |                |
+|  +-------------------------+     |                |
+|                                  |                |
+|                                  |                |
+|          Authentication          |                |
+|          via OIDC / OAuth2       |                |
+|                                  |                |
+|          +--------------------+  |                |
+|          |    Keycloak Auth    |  |                |
+|          | (Auth Server, OIDC) |--+                |
+|          +--------------------+                   |
+|                                                   |
+|---------------------------------------------------|
+|                 DEPLOYMENT OPTIONS                 |
+|---------------------------------------------------|
+|                                                   |
+|   1) SaaS Deployment:                              |
+|      - Backend + Frontend + Keycloak + PostgreSQL |
+|        run on Kubernetes cluster                   |
+|      - Keycloak centralized auth for all tenants   |
+|      - Multi-tenant DB or schema-based tenancy     |
+|                                                   |
+|   2) On-Prem Deployment (Client Side):            |
+|      - Docker Compose stack:                        |
+|         * React Frontend (NGINX container)         |
+|         * Backend API container                      |
+|         * Keycloak container + DB                    |
+|         * PostgreSQL container                       |
+|      - Separate isolated environment per customer   |
+|      - Configurable via env files, no source code   |
+|                                                   |
++---------------------------------------------------+
+
+
+Packaging & Delivery Flow (On-Prem)
+
+
++------------------------------------------------------+
+|  Package Delivered to Client:                         |
+|  - Pre-built Docker images (frontend, backend, keycloak, postgres)   |
+|  - Docker Compose YAML file                           |
+|  - Config files (.env, config.json)                   |
+|  - Installer script (optional)                        |
++------------------------------------------------------+
+
+           |
+           v
+
++------------------------------------------------------+
+| Client runs:                                         |
+|   docker-compose up -d                               |
+|                                                      |
+| Containers:                                          |
+|   - Frontend (React + NGINX)                         |
+|   - Backend API                                      |
+|   - PostgreSQL DB                                    |
+|   - Keycloak Auth Server + its DB                    |
++------------------------------------------------------+
+
+           |
+           v
+
++------------------------------------------------------+
+| Client accesses ITSM platform via browser           |
+| Authentication via Keycloak                          |
+| Backend talks to PostgreSQL and Keycloak             |
++------------------------------------------------------+
+
+Runtime Config & Security
+
++------------------------------+
+|  Runtime Configuration        |
+|  - .env for backend           |
+|  - config.json fetched by FE  |
+|  - Allows branding & env vars |
++------------------------------+
+
++------------------------------+
+|  Security                    |
+|  - HTTPS (SSL/TLS)           |
+|  - JWT & OAuth2/OIDC         |
+|  - RBAC in backend & Keycloak|
+|  - Data encryption           |
+|  - Audit logging             |
++------------------------------+
+
+
