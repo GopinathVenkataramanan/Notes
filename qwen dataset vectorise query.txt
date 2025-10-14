@@ -1,0 +1,100 @@
+[
+  {
+    "pattern": "HTTP Trigger with Dynamic Routing",
+    "language": "csharp",
+    "description": "Route requests to /api/v1/orders/{id} → OrdersFunction",
+    "code": "using Microsoft.AspNetCore.Mvc;\n\nnamespace Functions\n{\n    public static class OrdersFunction\n    {\n        [FunctionName(\"OrdersFunction\")] \n        public static async Task<IActionResult> Run(\n            [HttpTrigger(AuthorizationLevel.Function, \"get\", Route = \"v1/orders/{id}\")] HttpRequest req, \n            string id)\n        {\n            if (string.IsNullOrEmpty(id))\n                return new BadRequestObjectResult(\"ID required\");\n            \n            // Process orders\n            return new OkObjectResult(new { OrderId = id, Status = \"Processed\" });\n        }\n    }\n}",
+    "dependencies": [
+      "Microsoft.Azure.Functions.Extensions",
+      "Microsoft.NET.Sdk.Functions"
+    ],
+    "tags": ["http", "routing", "validation"]
+  },
+  {
+    "pattern": "Service Bus Queue Trigger with Transformation",
+    "language": "csharp",
+    "description": "Process JSON messages from queue, transform payload",
+    "code": "using Azure.Messaging.ServiceBus;\n\nnamespace Functions\n{\n    public static class QueueProcessor\n    {\n        [FunctionName(\"QueueProcessor\")] \n        public static async Task Run(\n            [ServiceBusTrigger(\"orders-queue\", Connection = \"ServiceBusConnection\")] ServiceBusMessage message)\n        {\n            var payload = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>>(message.Body.ToString());\n            payload[\"processedTime\"] = DateTime.UtcNow.ToString(\"O\");\n            \n            // Send to processed queue\n            await SendToProcessedQueue(payload);\n        }\n    }\n}",
+    "dependencies": [
+      "Azure.Messaging.ServiceBus",
+      "Microsoft.Azure.WebJobs.Extensions.ServiceBus"
+    ],
+    "tags": ["servicebus", "transformation", "async"]
+  },
+  {
+    "pattern": "Event Grid Integration",
+    "language": "csharp",
+    "description": "Trigger function on Blob Storage events",
+    "code": "using Azure.Storage.Blobs.Models;\n\nnamespace Functions\n{\n    public static class BlobProcessor\n    {\n        [FunctionName(\"BlobProcessor\")] \n        public static async Task Run(\n            [EventGridTrigger] EventGridEvent eventGridEvent)\n        {\n            var blobCreated = System.Text.Json.JsonSerializer.Deserialize<BlobCreatedEvent>(eventGridEvent.Data.ToString());\n            var blobName = blobCreated.Url.Split('/').Last();\n            \n            // Process blob\n            await ProcessBlobAsync(blobName);\n        }\n    }\n}",
+    "dependencies": [
+      "Microsoft.Azure.WebJobs.Extensions.EventGrid",
+      "Azure.Storage.Blobs"
+    ],
+    "tags": ["eventgrid", "blob", "azurestorage"]
+  },
+  {
+    "pattern": "Durable Functions Orchestration",
+    "language": "csharp",
+    "description": "Chain Order → Payment → Notification workflows",
+    "code": "using Azure.Functions.DurableTask;\n\nnamespace Functions\n{\n    public static class OrderOrchestrator\n    {\n        [FunctionName(\"OrderOrchestrator\")] \n        public static async Task RunOrchestrator(\n            [OrchestrationTrigger] IDurableOrchestrationContext context)\n        {\n            await context.CallActivityAsync(\"ProcessOrder\", context.Input);\n            await context.CallActivityAsync(\"ProcessPayment\", context.Input);\n            await context.CallActivityAsync(\"SendNotification\", context.Input);\n        }\n    }\n}",
+    "dependencies": [
+      "Microsoft.Azure.Functions.Worker.Extensions.DurableTask",
+      "DurableTask.Core"
+    ],
+    "tags": ["durable", "workflow", "orchestration"]
+  },
+  {
+    "pattern": "Blob Trigger with File Processing",
+    "language": "csharp",
+    "description": "Execute when new file uploaded to Blob Storage",
+    "code": "using Azure.Storage.Blobs;\n\nnamespace Functions\n{\n    public static class BlobTrigger\n    {\n        [FunctionName(\"BlobTrigger\")] \n        public static async Task Run(\n            [BlobTrigger(\"input-container/{name}\", Connection = \"AzureWebJobsStorage\")] BlobContainerClient blob)\n        {\n            var blobName = blob.Name;\n            await ProcessFileAsync(blobName);\n        }\n    }\n}",
+    "dependencies": [
+      "Azure.Storage.Blobs",
+      "Microsoft.Azure.WebJobs.Extensions.Storage"
+    ],
+    "tags": ["blob", "file-processing", "storage"]
+  },
+  {
+    "pattern": "Timer Trigger with Azure Monitor Integration",
+    "language": "csharp",
+    "description": "Daily health check with metrics logging",
+    "code": "using Azure.Monitor.Instrumentation; \n\nnamespace Functions\n{\n    public static class HealthCheck\n    {\n        [FunctionName(\"HealthCheck\")] \n        public static async Task Run(\n            [TimerTrigger(\"0 0 8 * * *\")] TimerInfo myTimer)\n        {\n            var metrics = new AzureMetrics(\"HealthCheck\");\n            metrics.Log(\"Running health check at \" + DateTime.Now);\n            await CheckSystemStatusAsync();\n        }\n    }\n}",
+    "dependencies": [
+      "Azure.Monitor.Instrumentation",
+      "Microsoft.Azure.WebJobs.Extensions.Timers"
+    ],
+    "tags": ["timer", "monitoring", "metrics"]
+  },
+  {
+    "pattern": "Cosmos DB Trigger with Change Feed",
+    "language": "csharp",
+    "description": "React to document updates in Cosmos DB",
+    "code": "using Microsoft.Azure.Documents;\n\nnamespace Functions\n{\n    public static class CosmosDBTrigger\n    {\n        [FunctionName(\"CosmosDBTrigger\")] \n        public static async Task Run(\n            [CosmosDBTrigger(\"db\", \"container\", Connection = \"CosmosDB\", LeaseCollectionName = \"leases\")] IReadOnlyList<Document> documents)\n        {\n            foreach (var doc in documents)\n                await ProcessDocumentAsync(doc);\n        }\n    }\n}",
+    "dependencies": [
+      "Microsoft.Azure.DocumentDB",
+      "Microsoft.Azure.WebJobs.Extensions.CosmosDB"
+    ],
+    "tags": ["cosmosdb", "change-feed", "reactive"]
+  },
+  {
+    "pattern": "HTTP Trigger with Azure AD Auth",
+    "language": "csharp",
+    "description": "Secure endpoint with Azure AD tokens",
+    "code": "using Microsoft.AspNetCore.Authorization;\nusing Microsoft.AspNetCore.Mvc;\n\nnamespace Functions\n{\n    [Authorize]\n    public static class SecureFunction\n    {\n        [FunctionName(\"SecureFunction\")] \n        public static IActionResult Run(\n            [HttpTrigger(AuthorizationLevel.Function, \"get\", Route = \"secure/\")] HttpRequest req)\n        {\n            return new OkObjectResult(\"Authenticated user\");\n        }\n    }\n}",
+    "dependencies": [
+      "Microsoft.AspNetCore.Authentication.JwtBearer",
+      "Microsoft.AspNetCore.Authorization"
+    ],
+    "tags": ["auth", "azuread", "security"]
+  },
+  {
+    "pattern": "Custom Integration Pattern",
+    "language": "csharp",
+    "description": "Example for your specific scenario",
+    "code": "using System.Net;\nusing System.Net.Http;\n\nnamespace Functions\n{\n    public static class CustomIntegration\n    {\n        [FunctionName(\"CustomIntegration\")] \n        public static async Task<HttpResponseMessage> Run(\n            [HttpTrigger(AuthorizationLevel.Function, \"post\", Route = \"custom/{type}\")] HttpRequest req, string type)\n        {\n            // YOUR CUSTOM CODE HERE\n            return new HttpResponseMessage(HttpStatusCode.OK);\n        }\n    }\n}",
+    "dependencies": [
+      "System.Net.Http"
+    ],
+    "tags": ["custom", "yourpattern", "placeholder"]
+  }
+]
