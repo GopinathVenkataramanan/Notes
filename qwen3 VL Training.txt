@@ -111,3 +111,90 @@ Given user input, retrieve relevant code + patterns.
 Feed to fine-tuned model to generate function app code.
 
 Assemble the project structure and output files.
+
+
+
+---------------------------------------------------------------------------
+
+Where to Get Relevant Datasets and Resources
+1. Official Microsoft Documentation & Samples
+
+Azure Functions .NET developer guide
+Microsoft docs provide extensive tutorials, best practices, and code samples:
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-dotnet-class-library
+
+Azure Samples GitHub repo
+Microsoft’s official sample repo with lots of .NET Azure Functions examples:
+https://github.com/Azure-Samples?query=azure-function+dotnet
+
+Azure Architecture Center
+Contains integration patterns, architectural best practices with code snippets:
+https://learn.microsoft.com/en-us/azure/architecture/
+
+You can scrape or manually extract code snippets and docs from these authoritative sources.
+
+2. GitHub Public Repositories
+
+Search GitHub for repositories that implement Azure Functions in C# with good coding standards:
+
+Use search queries like:
+language:C# azure function best practices
+or
+topic:azure-functions language:c#
+
+Examples of repos to check out:
+
+https://github.com/Azure/azure-functions-host
+ (the runtime itself)
+
+Various open-source projects or community repos implementing Azure Functions with .NET
+
+You can clone these repos and extract code, focusing on usage patterns, configuration, error handling, naming conventions.
+
+3. Code Style and Best Practices Resources
+
+.NET Coding Conventions
+Microsoft provides official C# coding conventions:
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+
+Azure Functions best practices
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-best-practices
+
+These docs can help you build or refine style guides and rules, which you can encode into your training data or prompts.
+
+4. Community Q&A and Blogs
+
+Stack Overflow tags azure-functions and c#
+
+Medium, Dev.to posts about Azure Functions .NET best practices
+
+Azure DevOps repos from community projects
+
+5. Generate Synthetic Data
+
+If data is sparse, you can create synthetic datasets by:
+
+Writing small Azure Function snippets demonstrating best practices.
+
+Using code generation tools with style rules to produce variations.
+
+How to Prepare This Data for Training
+
+Extract code snippets and annotate with labels: “Best Practice”, “Integration Pattern”, “Function App Setup”, etc.
+
+Structure the dataset as (prompt, code) pairs or (description, code example).
+
+Normalize code style to a consistent format using tools like dotnet format.
+
+Summary of Resources
+Resource	Type	Link/Info
+Microsoft Docs	Official tutorials + samples	https://learn.microsoft.com/en-us/azure/azure-functions/
+
+Azure Samples GitHub	Real-world example repos	https://github.com/Azure-Samples
+
+Azure Architecture Center	Patterns + best practices	https://learn.microsoft.com/en-us/azure/architecture/
+
+GitHub Repositories	Open source projects	Search with language:C# azure function
+.NET Coding Conventions	Style guide	https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+
+Community Q&A & Blogs	Use cases, patterns	Stack Overflow, Medium, Dev.to
