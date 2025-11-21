@@ -438,6 +438,968 @@ Tell me which one you want!
 
 
 
+Below is a **complete, authoritative list of reference materials** you should use to create accurate, high-quality product requirements for a **multi-ISO compliance automation platform**.
+This list includes **official ISO standards**, **implementation guidance**, **auditor playbooks**, **industry best practices**, and **competitive intelligence sources**.
+
+It is structured into:
+
+1. **ISO Standards (Primary Sources)**
+2. **Guidance & Implementation Documents**
+3. **Certification & Audit Reference Material**
+4. **Security & Privacy Frameworks (Cross-map references)**
+5. **Cloud Security Benchmarking**
+6. **Process & Quality Frameworks**
+7. **AI Governance References (ISO 42001 related)**
+8. **Market & Competitor Research**
+9. **Open-source & public policy libraries**
+
+---
+
+# ⭐ 1. PRIMARY SOURCES (OFFICIAL ISO STANDARDS)
+
+These are the **core documents** your product MUST reference to build requirements for controls, evidence, audit preparation, and documentation automation.
+
+### ✔ **ISO/IEC 27001** — Information Security Management System
+
+Defines requirements for an ISMS and the Annex A control structure.
+
+### ✔ **ISO/IEC 27002** — Security Controls Implementation
+
+Detailed control guidance (useful for “How to implement control X”).
+
+### ✔ **ISO/IEC 27017** — Cloud Security Controls
+
+Great for cloud SaaS control requirements.
+
+### ✔ **ISO/IEC 27018** — PII Protection in Cloud
+
+Useful for privacy + cloud mapping.
+
+### ✔ **ISO/IEC 27701** — Privacy Information Management System
+
+Extension of ISO 27001. Essential for GDPR-aligned privacy requirements.
+
+### ✔ **ISO 9001** — Quality Management
+
+Useful for QMS workflows (CAPA, internal audit, nonconformities, process design).
+
+### ✔ **ISO 22301** — Business Continuity Management
+
+Guides for incident response, business continuity, DR, RTO/RPO.
+
+### ✔ **ISO/IEC 20000-1** — IT Service Management
+
+For IT service delivery workflows and SLA monitoring.
+
+### ✔ **ISO 31000** — Risk Management
+
+Helps structure risk scoring engine, controls mapping, and risk treatment workflows.
+
+### ✔ **ISO 42001** — AI Management System (AIMS)
+
+Core reference for AI governance, transparency, AI risk management, and model lifecycle controls.
+
+### ✔ **ISO 14001** — Environmental Management
+
+For ESG/green-compliance functionality.
+
+### ✔ **ISO 13485** — Medical Device Quality System
+
+Useful if your tool targets health-tech and med-tech.
+
+### ✔ **ISO 29119** — Software Testing
+
+Essential for dev/test workflows and evidence generation in regulated software companies.
+
+### ✔ **ISO 19650** — BIM Information Management (Construction)
+
+Key for construction and engineering clients — a niche differentiator.
+
+---
+
+# ⭐ 2. IMPLEMENTATION GUIDANCE & BEST-PRACTICE SOURCES
+
+### ✔ **ISO 27003** — ISMS Implementation Guidance
+
+Very helpful for your onboarding wizard and implementation checklists.
+
+### ✔ **ISO 27004** — ISMS Measurement
+
+Useful for creating dashboards & KPIs for controls effectiveness.
+
+### ✔ **ISO 27005** — Information Security Risk Management
+
+Provides risk assessment workflow templates and risk scenarios.
+
+### ✔ **ISO/IEC TR 27023** — Mapping of ISO 27001 & 27002 versions
+
+Helps with cross-version control mapping.
+
+### ✔ **ISO/IEC TS 27008** — Auditor’s Guidance for Controls
+
+Used to build “internal audit modules” inside your tool.
+
+### ✔ **NIST 800-53, 800-171, CSF**
+
+Used for cross-mapping with ISO controls and building your unified control framework.
+
+### ✔ **CSA Cloud Controls Matrix (CCM)**
+
+Very helpful for cloud-specific compliance mappings.
+
+### ✔ **OWASP ASVS / SAMM**
+
+For application security evidence & SDLC requirements.
+
+---
+
+# ⭐ 3. AUDIT & CERTIFICATION GUIDES
+
+Use these to build audit preparation flows inside your platform.
+
+### ✔ **ISO/IEC 17021-1** — Requirements for Certification Bodies
+
+Explains what audit bodies need and how they score evidence.
+
+### ✔ **IAF MD Series (Mandatory Documents)**
+
+Important for designing the “audit readiness engine.”
+
+Particularly:
+
+* **IAF MD5** (Audit Days Calculation — for pricing guidance)
+* **IAF MD11** (Integrated Management System Audits)
+* **IAF MD21** (Transfer of Certification Bodies)
+
+### ✔ **UKAS / ANAB / JAS-ANZ auditor guidelines**
+
+Outline how audits are performed and what constitutes nonconformity.
+
+### ✔ **ISO Internal Auditor Training Manuals**
+
+Commonly contain:
+
+* Checklists
+* Evidence examples
+* Daily audit workflows
+
+All useful for building the internal audit module.
+
+---
+
+# ⭐ 4. CROSS-MAPPING & FRAMEWORK ALIGNMENT SOURCES
+
+Building a **Unified Control Framework** requires mapping ISO to other standards.
+
+Use these:
+
+### ✔ NIST Cybersecurity Framework (CSF)
+
+### ✔ NIST 800-53 Rev5 controls
+
+### ✔ CIS Controls v8
+
+### ✔ COBIT 2019
+
+### ✔ PCI DSS v4
+
+### ✔ HIPAA Security Rule
+
+### ✔ GDPR Articles & Recitals
+
+### ✔ SOC 2 Trust Services Criteria (AICPA)
+
+This enables features like:
+
+* Multi-standard control reuse
+* Automatic mapping
+* Unified control dashboards
+* Multi-framework readiness reports
+
+---
+
+# ⭐ 5. CLOUD SECURITY BENCHMARKS (for automated evidence collection)
+
+Needed for integrating with AWS/GCP/Azure.
+
+### AWS
+
+* **AWS Well-Architected Framework**
+* **AWS Security Hub Controls**
+* **AWS Foundational Security Best Practices**
+
+### Azure
+
+* **Microsoft Cloud Security Benchmark**
+* **Azure Security Center Recommendations**
+
+### GCP
+
+* **Google Cloud Security Foundations Guide**
+
+Mapping these to ISO controls allows:
+
+* MFA checks
+* Encryption checks
+* Logging checks
+* IAM checks
+* Backup verification
+
+These power your **automation engine**.
+
+---
+
+# ⭐ 6. PROCESS & QUALITY FRAMEWORKS
+
+Useful for ISO 9001, 13485, 20000.
+
+### ✔ ITIL 4 Foundation & Practice Guides
+
+Maps extremely well to ISO 20000-1.
+
+### ✔ Lean Six Sigma (DMAIC)
+
+Useful for QMS and process improvement modules.
+
+### ✔ CAPA (Corrective Action & Preventive Action)
+
+Essential for ISO 9001, 13485.
+
+### ✔ BPMN 2.0 (Business Process Modeling Notation)
+
+Useful for generating process flows inside your QMS/ISMS modules.
+
+---
+
+# ⭐ 7. AI GOVERNANCE & ETHICAL AI REFERENCES
+
+For ISO 42001 (AI Management System).
+
+### ✔ OECD AI Principles
+
+### ✔ EU AI Act Guidelines
+
+### ✔ NIST AI Risk Management Framework (AI RMF 1.0)
+
+### ✔ UNESCO AI Ethics Guidelines
+
+### ✔ ISO/IEC 23894 — AI Risk Management
+
+Your AI-governance module can reference these to:
+
+* Evaluate models
+* Log training data
+* Track model lifecycle
+* Build transparency documents
+* Automate AI risk assessments
+
+Very few compliance platforms support this → **competitive goldmine**.
+
+---
+
+# ⭐ 8. MARKET & COMPETITOR RESEARCH
+
+Study the features, limitations, and pricing of:
+
+### Mainstream platforms:
+
+* Drata
+* Vanta
+* Secureframe
+* Sprinto
+* Thoropass
+* TugboatLogic
+* AuditBoard
+
+### Niche platforms:
+
+* Laika (SOC2 + startup focus)
+* Hyperproof (multi-framework)
+* 6clicks (control mapping engine)
+* OneTrust (privacy)
+* TrustCloud
+
+This will help you design:
+
+* Better automation
+* Better UX
+* Better pricing for SMBs
+* Support for niche ISO standards competitors ignore
+
+---
+
+# ⭐ 9. PUBLIC POLICY & SECURITY DOCUMENT LIBRARIES
+
+Useful for building your **policy automation engine**:
+
+### ✔ NIST Public Policy Templates
+
+### ✔ AWS, Google, Microsoft sample security policies
+
+### ✔ OpenPolicyAgent sample libraries
+
+### ✔ Gov cybersecurity templates (UK NCSC, CISA)
+
+### ✔ Cloud Security Alliance (CSA) templates
+
+### ✔ ISO free guidance papers (non-paid TRs)
+
+These are great seed material for AI-driven policy generation.
+
+---
+
+# ⭐ SUMMARY: MOST IMPORTANT SOURCES FOR REQUIREMENTS
+
+If you need a concise summary of what matters most, here it is:
+
+### **For core ISO controls**
+
+➡ ISO 27001 + ISO 27002 + ISO 27701 + ISO 9001
+
+### **For cloud/automation**
+
+➡ CSA CCM + AWS/Azure/GCP security benchmarks
+
+### **For audit workflows**
+
+➡ ISO 17021 + IAF MD documents + ISO auditor guides
+
+### **For risk modules**
+
+➡ ISO 31000 + ISO 27005 + NIST CSF
+
+### **For AI governance**
+
+➡ ISO 42001 + NIST AI RMF
+
+### **For unified control mapping**
+
+➡ NIST 800-53, CIS Controls, SOC 2 TSC
+
+Using these, you can create very precise, auditor-aligned requirements.
+
+---
+
+# ⭐ NEXT: I CAN GENERATE ANY OF THESE
+
+If you want, I can now create:
+
+### ✔ A **full requirements specification (SRS)** for the platform
+
+### ✔ The **Unified Control Framework data model**
+
+### ✔ The **full PRD** for the multi-ISO compliance platform
+
+### ✔ A **mapping of all ISO controls to master control categories**
+
+### ✔ A **complete architectural blueprint**
+
+### ✔ A **12-month engineering roadmap**
+
+Just tell me what you want next!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Absolutely — here is **the complete package**, covering *all* items you requested:
+
+1. **Full Software Requirements Specification (SRS)**
+2. **Unified Control Framework (UCF) Data Model**
+3. **Full Product Requirements Document (PRD)**
+4. **ISO Control Category Mapping Framework** (generalized, scalable — not every control verbatim, or it would be >500 pages)
+5. **Full Architectural Blueprint**
+6. **12-Month Engineering Roadmap**
+
+This version is complete enough to brief engineering, product, security SMEs, and investors.
+
+---
+
+# ----------------------------------------------
+
+# ⭐ 1. FULL SOFTWARE REQUIREMENTS SPECIFICATION (SRS)
+
+# ----------------------------------------------
+
+# **1. Introduction**
+
+### **1.1 Purpose**
+
+This SRS defines the requirements for a **multi-ISO compliance automation platform** enabling organizations to implement and maintain compliance with ISO standards including:
+
+* ISO 27001
+* ISO 27002
+* ISO 27701
+* ISO 9001
+* ISO 22301
+* ISO 20000-1
+* ISO 31000
+* ISO 27017 / 27018
+* ISO 42001 (AI Management System)
+* ISO 13485
+* ISO 14001
+* ISO 29119
+* ISO 19650
+
+### **1.2 Intended Users**
+
+* Compliance managers
+* CTOs / CISOs
+* Consultants (MSP/MSSP mode)
+* Small/medium businesses seeking certification
+* External auditors
+
+### **1.3 Product Scope**
+
+The platform reduces certification time by 70% by automating:
+
+* ISMS/QMS/PIMS creation
+* Risk assessments
+* Control mapping
+* Evidence collection
+* Policy generation
+* Internal audits
+* Auditor export packages
+
+---
+
+# **2. Overall Description**
+
+### **2.1 System Perspective**
+
+The system is a cloud-based SaaS using:
+
+* Microservices
+* AI document generation
+* Automated evidence pulling from cloud providers
+* Unified control mapping across standards
+
+### **2.2 Major Features**
+
+* Multi-standard compliance engine
+* Onboarding wizard
+* ISMS/QMS/PIMS document automation
+* Unified controls framework (UCF)
+* AI auditor & AI document assistant
+* Internal audit & CAPA workflows
+* Cloud evidence automation
+* Certification readiness scoring
+* Auditor export center
+
+---
+
+# **3. Functional Requirements**
+
+### **FR-001: Standards Selector**
+
+* User can select one or multiple ISO standards.
+* System loads associated controls & requirements.
+
+### **FR-002: Dynamic Document Generator**
+
+* Auto-generates all required documents (policies, procedures, records).
+* Uses company profile inputs.
+* Supports AI customization.
+
+### **FR-003: Unified Controls Framework**
+
+* Maps multiple ISO controls to a master control.
+* Tracks implementation status per standard.
+* Deduplicates evidence.
+
+### **FR-004: Evidence Collection Engine**
+
+* Pulls data from:
+
+  * AWS, Azure, GCP
+  * Okta, Entra ID
+  * Google Workspace
+  * GitHub/GitLab
+  * Cloudflare
+  * Datadog
+* Maps each evidence artifact to multiple standards.
+
+### **FR-005: Risk Assessment Engine**
+
+* Supports ISO 27005, 31000, 42001, 22301 methodologies.
+* Provides scoring, treatment plans, risk libraries.
+
+### **FR-006: Internal Audit Module**
+
+* Generates audit checklist based on standards.
+* Captures findings, NCs, CAPA logs.
+* Exportable audit report.
+
+### **FR-007: Readiness Dashboard**
+
+* Displays % readiness per framework.
+* Shows gaps & automatable controls.
+
+### **FR-008: Auditor Export**
+
+* Produces certification-ready ZIP including:
+
+  * ISMS
+  * Policies
+  * SoA
+  * Evidence
+  * Internal audit report
+  * Risk register
+
+### **FR-009: Multi-Client Consultant Mode**
+
+* MSPs can manage multiple clients.
+* Role-based access to data.
+
+---
+
+# **4. Non-Functional Requirements**
+
+### **NFR-001: Security**
+
+* Encryption in transit and at rest
+* RBAC, MFA
+* Tenant isolation
+* Audit log retention 1–7 years
+
+### **NFR-002: Performance**
+
+* Evidence sync < 10 seconds per integration batch
+* Dashboard loads < 2 seconds
+
+### **NFR-003: Scalability**
+
+* Must support 10,000+ organizations
+* Horizontal scaling of services
+
+### **NFR-004: Availability**
+
+* 99.9% uptime SLA
+
+### **NFR-005: Maintainability**
+
+* Modular microservice architecture
+* Automated compliance test suite
+
+---
+
+# ----------------------------------------------
+
+# ⭐ 2. UNIFIED CONTROL FRAMEWORK (UCF) — DATA MODEL
+
+# ----------------------------------------------
+
+To support multiple ISO standards, you need a **master control taxonomy**.
+
+---
+
+## **Entities & Relationships**
+
+### **1. Standards**
+
+```
+Standard {
+  id
+  name
+  description
+  version
+  category (ISMS, QMS, PIMS, AIMS, BCMS, EMS, etc.)
+}
+```
+
+### **2. StandardControls**
+
+```
+StandardControl {
+  id
+  standardId
+  controlId
+  controlText
+  controlCategory
+}
+```
+
+### **3. MasterControls**
+
+```
+MasterControl {
+  id
+  name
+  description
+  category (e.g., Access Control, Logging)
+  subCategory
+  priority
+}
+```
+
+### **4. ControlMappings**
+
+```
+ControlMapping {
+  id
+  masterControlId
+  standardControlId
+  equivalenceType (full, partial, related)
+}
+```
+
+### **5. Evidence**
+
+```
+EvidenceItem {
+  id
+  masterControlId
+  uploadType (manual/automated)
+  sourceIntegration
+  timestamp
+  fileRef
+  status
+}
+```
+
+### **6. Integration Checks**
+
+```
+AutomatedCheck {
+  id
+  masterControlId
+  provider (AWS/GCP/Okta/etc.)
+  apiEndpoint
+  passCriteria
+  failCriteria
+}
+```
+
+### **7. Policies**
+
+```
+PolicyDocument {
+  id
+  masterControlId
+  templateId
+  version
+  status
+}
+```
+
+---
+
+# ----------------------------------------------
+
+# ⭐ 3. FULL PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
+# ----------------------------------------------
+
+# **Title:** Multi-ISO Compliance Automation Platform
+
+## **1. Problem Statement**
+
+Small companies struggle with ISO certification because it is:
+
+* Expensive
+* Complex
+* Manual
+* Repetitive
+* Requires expertise they don’t have
+
+Current tools focus only on ISO 27001 or SOC 2, ignoring niche ISO standards.
+
+---
+
+## **2. Product Strategy**
+
+Build an **affordable, automated, multi-standard compliance platform** supporting both mainstream and niche ISO frameworks.
+
+---
+
+## **3. Goals**
+
+### **Primary Goals**
+
+* Reduce ISO certification time by 70%
+* Reduce consultancy cost by 80%
+* Support 12+ ISO frameworks
+* Full automation of evidence collection
+
+### **Secondary Goals**
+
+* Multi-tenant MSP/consultant mode
+* First platform to support ISO 42001
+
+---
+
+## **4. User Personas**
+
+* Small company CTO/CISO
+* Compliance Manager
+* ISO Consultant
+* Internal auditor
+* External auditor (review-only mode)
+
+---
+
+## **5. Key Features**
+
+1. Multi-standard onboarding wizard
+2. Auto-generated ISMS, QMS, PIMS, AIMS
+3. Unified control framework
+4. Automated cloud evidence
+5. Internal audit automation
+6. AI policy and documentation generation
+7. Certification export engine
+
+---
+
+## **6. Success Metrics**
+
+* 10 hours average to produce full ISO documentation
+* 95% of controls automated or aided by AI
+* Evidence coverage > 60% automated
+* Time-to-audit < 30 days
+
+---
+
+# ----------------------------------------------
+
+# ⭐ 4. ISO CONTROL CATEGORY MAPPING FRAMEWORK
+
+# ----------------------------------------------
+
+Below is a scalable mapping model. (Full control-by-control mapping = hundreds of pages, but this gives you the **unified structure**.)
+
+# **Master Categories**
+
+1. Governance & Organization
+2. Risk Management
+3. Human Resources Security
+4. Asset Management
+5. Access Control
+6. Cryptography
+7. Physical Security
+8. Operations Security
+9. Communications Security
+10. System Acquisition & Development
+11. Supplier Management
+12. Incident Management
+13. Business Continuity
+14. Compliance & Audit
+15. Quality Management (ISO 9001)
+16. Privacy Management (ISO 27701)
+17. AI Governance (ISO 42001)
+18. Environmental Management (ISO 14001)
+
+Each ISO standard maps into these categories.
+
+Example:
+
+### **Access Control Master Category**
+
+| Framework | Controls                             |
+| --------- | ------------------------------------ |
+| ISO 27001 | A.8.2 Access Control                 |
+| ISO 27701 | B.6.2 PII Access Control             |
+| ISO 42001 | 7.3.2 Access to AI Models            |
+| ISO 9001  | 7.1 Resource Access                  |
+| ISO 13485 | 4.2.5 Access to medical design files |
+
+This mapping supports unified evidence.
+
+---
+
+# ----------------------------------------------
+
+# ⭐ 5. COMPLETE ARCHITECTURAL BLUEPRINT
+
+# ----------------------------------------------
+
+# **Architecture Overview**
+
+Microservices + event-driven interactions.
+
+---
+
+## **A. Core Services**
+
+### **1. Standards Service**
+
+* Stores ISO frameworks
+* Manages control libraries
+* Manages mappings
+
+### **2. Document Service**
+
+* AI policy generation
+* Versioning
+* Templates
+
+### **3. Evidence Service**
+
+* Manual uploads
+* Integrations
+* Evidence validation
+
+### **4. Integration Service**
+
+* AWS/Azure/GCP/Okta APIs
+* Schedules evidence syncing
+
+### **5. Risk Service**
+
+* Risk scoring
+* Registries
+* Treatment plans
+
+### **6. Audit Service**
+
+* Internal audits
+* Nonconformities
+* CAPA tracking
+
+### **7. Reporting Service**
+
+* Dashboards
+* Readiness scores
+* Export packages
+
+---
+
+## **B. Frontend**
+
+* Next.js
+* Typescript
+* Component-based dashboards
+* Role-based UI
+
+---
+
+## **C. AI Layer**
+
+Uses LLMs to:
+
+* Draft policies
+* Summarize evidence
+* Identify gaps
+* Generate audit responses
+* Build risk scenarios
+
+---
+
+## **D. Data Storage**
+
+* PostgreSQL for relational
+* S3/Blob for evidence
+* ElasticSearch for document search
+* Redis for caching
+
+---
+
+## **E. Security**
+
+* JWT Auth
+* RBAC
+* Full audit trails
+* Network segregation by tenant
+* Encryption everywhere
+
+---
+
+# ----------------------------------------------
+
+# ⭐ 6. 12-MONTH ENGINEERING ROADMAP
+
+# ----------------------------------------------
+
+## **Q1 — Foundation**
+
+* Standards engine (ISO 27001, 27701, 9001)
+* Document generator v1
+* Evidence upload
+* Risk engine v1
+* Control mapping engine
+
+## **Q2 — Expansion**
+
+* Integrations: AWS, GCP, Azure
+* Internal audit module
+* Readiness dashboard
+* Auditor export
+* ISO 22301 & 20000-1 support
+
+## **Q3 — Differentiators**
+
+* AI governance (ISO 42001) module
+* Privacy templates (ISO 27701 advanced)
+* Consultant multi-tenant mode
+* ISO 27017/27018 cloud security
+
+## **Q4 — Advanced & Niche**
+
+* ISO 13485 module
+* ISO 29119 module
+* ISO 14001 module
+* Workflow automation (CAPA, incidents, approvals)
+* Marketplace for auditors/consultants
+* AI continuous compliance engine
+
+---
+
+# ⭐ EVERYTHING IS READY
+
+If you want, I can now also generate:
+
+### ✔ Database schema (SQL-ready)
+
+### ✔ Low-fidelity wireframes
+
+### ✔ High-fidelity UI design concepts
+
+### ✔ Investor pitch deck
+
+### ✔ Marketing copy for website
+
+### ✔ Pricing model & tier definitions
+
+### ✔ Competitive comparison matrix
+
+### ✔ Technical risk register
+
+### ✔ Deployment architecture (Kubernetes/IaC)
+
+Tell me which one you want next!
+
+
+
+
+
+
+
+
 
 
 
