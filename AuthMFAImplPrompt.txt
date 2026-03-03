@@ -1,0 +1,326 @@
+Below is a **complete, production-grade build prompt** you can give to Claude to implement multi-tenant MFA on top of an existing auth system using containerized Keycloak.
+
+This prompt is designed to:
+
+* Produce full working implementation
+* Avoid shortcuts / TODOs
+* Include configuration, automation, and hardening
+* Be production-ready for public SaaS
+* Cover Docker-based deployment
+* Support 10–100 tenants / 100–1000 users each
+
+You can paste this directly into Claude.
+
+---
+
+# ✅ MASTER IMPLEMENTATION PROMPT FOR CLAUDE
+
+---
+
+You are a senior IAM and SaaS security engineer.
+
+Your task is to design and fully implement a production-ready multi-tenant MFA solution using containerized Keycloak for a public internet SaaS product.
+
+This must be a COMPLETE implementation.
+No TODOs.
+No placeholders.
+No pseudocode.
+No partial configs.
+No high-level summaries.
+All configuration must be fully specified.
+
+---
+
+# CONTEXT
+
+Environment:
+
+* Public internet SaaS
+* 10–100 tenants
+* 100–1000 users per tenant
+* Docker (NOT Kubernetes)
+* Existing auth already uses Keycloak
+* Must extend current implementation
+* Zero-cost MFA only (no SMS, no paid services)
+
+Database:
+
+* PostgreSQL (external, production-ready)
+
+MFA Method:
+
+* TOTP only (Authenticator apps)
+* No SMS
+* No hardware tokens
+
+Supported apps:
+
+* Google Authenticator
+* Microsoft Authenticator
+* Authy
+
+---
+
+# OBJECTIVES
+
+Implement the following completely:
+
+1. Realm-per-tenant architecture
+2. Automated tenant provisioning
+3. Mandatory TOTP MFA per tenant
+4. Brute-force protection
+5. Reverse proxy hardening
+6. Horizontal scaling with Docker
+7. Secure DB configuration
+8. MFA recovery mechanism
+9. Tenant-level MFA policy control
+10. Production-ready Docker deployment
+11. Backup strategy
+12. Secure configuration of token settings
+13. Disable insecure flows
+14. Login endpoint rate limiting
+15. Admin isolation (master realm protection)
+
+---
+
+# REQUIRED DELIVERABLES
+
+Claude must produce:
+
+## 1️⃣ Docker Compose Production Setup
+
+Include:
+
+* 3 Keycloak containers
+* PostgreSQL container (or external DB config)
+* Reverse proxy (NGINX)
+* Health checks
+* Environment variables fully defined
+* Production flags enabled
+* TLS configuration
+* Sticky session config if required
+* Volume definitions
+* Network isolation
+* Secure secrets handling (no plain passwords)
+
+---
+
+## 2️⃣ Keycloak Configuration
+
+Provide:
+
+* Realm creation automation (via Admin REST API or kcadm.sh)
+* Script for tenant creation
+* OTP policy configuration
+* Authentication flow JSON export
+* Role-based conditional MFA flow
+* Required actions configuration
+* Token lifespan configuration
+* Brute force protection configuration
+* Disable Direct Grant flow
+* Disable unused protocols
+* Admin realm hardening
+
+Must include:
+
+* Full JSON realm export example
+* CLI commands for import
+
+---
+
+## 3️⃣ MFA Enforcement Logic
+
+Implement:
+
+* Mandatory OTP on first login
+* Required Action: Configure OTP
+* Conditional MFA (role-based)
+* Tenant-configurable MFA enforcement flag
+
+Must provide:
+
+* Exact flow configuration
+* CLI commands
+* JSON export snippet
+
+---
+
+## 4️⃣ Reverse Proxy Configuration
+
+Provide:
+
+Full NGINX config including:
+
+* TLS 1.2+
+* HSTS
+* Login endpoint rate limiting
+* Token endpoint rate limiting
+* Proper X-Forwarded headers
+* Proxy buffering config
+* Security headers
+* Hide server tokens
+* Prevent tenant enumeration via error handling
+
+No partial snippets.
+Full working nginx.conf required.
+
+---
+
+## 5️⃣ Database Configuration
+
+Provide:
+
+* PostgreSQL config tuned for 100k users
+* Connection pool settings
+* DB encryption recommendations
+* Backup cron job script
+* Restore procedure script
+
+---
+
+## 6️⃣ Tenant Onboarding Automation
+
+Provide:
+
+* Script to create new tenant realm
+* Script to configure OTP policy
+* Script to create default roles
+* Script to bind MFA flow
+* Script to create tenant admin user
+
+Must be executable and complete.
+
+---
+
+## 7️⃣ Security Hardening Checklist
+
+Provide:
+
+* Container security settings
+* Non-root container execution
+* Read-only filesystem where possible
+* Secrets injection best practice
+* Rate limiting values
+* Account lockout values
+* Token expiration values
+* Refresh token rotation config
+* Cross-tenant isolation validation steps
+
+---
+
+## 8️⃣ MFA Recovery Flow
+
+Implement secure recovery mechanism:
+
+Option required:
+
+* Admin-triggered OTP reset
+* Temporary bypass role (expires after 1 login)
+
+Must include:
+
+* Role creation
+* Conditional flow
+* Expiration enforcement
+
+No insecure email OTP.
+
+---
+
+## 9️⃣ Horizontal Scaling Guidance
+
+Provide:
+
+* Load balancing strategy
+* Sticky vs non-sticky decision
+* Cache behavior explanation
+* Session replication explanation
+* Container resource sizing
+
+---
+
+## 🔟 Production Threat Model
+
+Include:
+
+* Credential stuffing defense
+* Brute force defense
+* OTP brute force defense
+* Cross-tenant attack vectors
+* Realm isolation risks
+* Token replay mitigation
+
+---
+
+# CONSTRAINTS
+
+* No SaaS IAM vendors
+* No paid MFA providers
+* No SMS gateway
+* No enterprise-only features
+* No Kubernetes
+* No shortcuts
+* No references to “this should be configured”
+* No TODO comments
+* No abstract guidance
+
+Everything must be fully implemented.
+
+---
+
+# OUTPUT FORMAT
+
+Structured sections:
+
+1. Architecture
+2. Docker Compose
+3. Keycloak Config
+4. NGINX Config
+5. DB Config
+6. Automation Scripts
+7. MFA Flow JSON
+8. Security Hardening
+9. Scaling Model
+10. Threat Model
+
+All configs must be syntactically correct and runnable.
+
+---
+
+# SUCCESS CRITERIA
+
+A DevOps engineer should be able to:
+
+* Copy configs
+* Run docker compose
+* Provision a tenant
+* Log in
+* Be forced to enroll TOTP
+* Successfully authenticate with MFA
+* Scale to 100 tenants
+* Survive container restart
+* Survive DB restore
+
+Without modifying incomplete sections.
+
+---
+
+Produce the complete implementation.
+
+Do not summarize.
+Do not shorten.
+Do not skip details.
+Do not provide high-level explanations.
+Deliver full production-ready configuration.
+
+---
+
+# END PROMPT
+
+---
+
+If you'd like, I can also generate:
+
+* A stricter version optimized for SOC2 documentation
+* A version optimized for investor technical due diligence
+* Or a version tailored specifically for Claude 3.5 Sonnet reasoning style
