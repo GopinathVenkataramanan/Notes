@@ -1,0 +1,23 @@
+Airport City Model:
+
+🧳 User arrives
+   ↓
+🌐 Airport Entrance (Front Door)
+   ↓
+🛂 Security Check (WAF)
+   ↓
+🆔 Passport Control (Entra ID)
+   ↓
+🚪 Terminal Routing (App Gateway)
+   ↓
+🏙️ Private City (VNet)
+   ↓
+🏢 Office / Factory (App Service / AKS)
+   ↓
+🗄️ Bank Vault / Warehouse (Database)
+   ↓
+🔐 Master Safe (Key Vault)
+   ↓
+📡 Security Cameras (Monitor)
+   ↓
+🚨 Intelligence HQ (Sentinel)
