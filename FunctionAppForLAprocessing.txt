@@ -1,5 +1,23 @@
 For an enterprise-grade Azure Functions (.NET Isolated Worker) solution, I would strongly recommend a **Vertical Slice Architecture** rather than grouping by technical layers. This aligns perfectly with your requirements:
 
+I wanted to create a function app with different serivces as each functions  (dotnet isolated worker model + all open source libraries)
+Each function should have seperate schema to be validated
+Each Function should have seperate folder in the project structure
+Each Function should have downstream processing 
+Each downstream processing  should have following logic
+  Log the call is starting
+  Parse Function request payload to Service Request Mapper (Request mapper is a soap request mapper and Soap model is generated from wsdl using Microsoft.Tools.ServiceModel.Svcutil)
+  Call APIM using soap request
+  Get Soap Response from APIM
+  Parse Soap Respose to Function Response and return response
+  Log the call is successful or error base on the response
+  Write to Cosmos db transaction Audit
+  
+  
+Create a sample project with proper folder structure at enterprise grade. and give me the same to run and check the response (For now use the APIM service as stub to return some sample soap response use the mapper with your sample soap schema file)
+
+
+
 * Each Function in its own folder
 * Each Function has its own request/response schema
 * Independent validation
@@ -511,8 +529,17 @@ POST /api/CustomerLookup
 ```
 
 ---
+Add the following 
+
+* Polly retry/circuit breaker
+* APIM SOAP client wrapper using HttpClientFactory
+* Centralized audit pipeline
+* Serilog + Application Insights
+
 
 For a production enterprise implementation, I would add:
+
+
 
 * MediatR pipeline behavior
 * FluentValidation pipeline
