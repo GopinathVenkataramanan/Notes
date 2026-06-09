@@ -1,0 +1,531 @@
+For an enterprise-grade Azure Functions (.NET Isolated Worker) solution, I would strongly recommend a **Vertical Slice Architecture** rather than grouping by technical layers. This aligns perfectly with your requirements:
+
+* Each Function in its own folder
+* Each Function has its own request/response schema
+* Independent validation
+* Independent downstream processing
+* Shared infrastructure components
+* SOAP integration via generated SvcUtil models
+* Cosmos DB audit
+* Centralized logging and error handling
+
+---
+
+# Recommended Project Structure
+
+```text
+src/
+│
+├── FunctionApp/
+│   ├── Program.cs
+│   │
+│   ├── Common/
+│   │   ├── Middleware/
+│   │   │   ├── ExceptionMiddleware.cs
+│   │   │   └── CorrelationMiddleware.cs
+│   │   │
+│   │   ├── Logging/
+│   │   ├── Validation/
+│   │   ├── Models/
+│   │   └── Constants/
+│   │
+│   ├── Infrastructure/
+│   │   ├── Soap/
+│   │   │   ├── ISoapClient.cs
+│   │   │   ├── SoapClient.cs
+│   │   │   └── SoapStubClient.cs
+│   │   │
+│   │   ├── Cosmos/
+│   │   │   ├── IAuditRepository.cs
+│   │   │   └── AuditRepository.cs
+│   │   │
+│   │   └── Apim/
+│   │       └── ApimSettings.cs
+│   │
+│   ├── Services/
+│   │
+│   │   ├── CustomerLookup/
+│   │   │   ├── CustomerLookupFunction.cs
+│   │   │   ├── CustomerLookupValidator.cs
+│   │   │   ├── CustomerLookupHandler.cs
+│   │   │   ├── Models/
+│   │   │   │   ├── CustomerLookupRequest.cs
+│   │   │   │   └── CustomerLookupResponse.cs
+│   │   │   │
+│   │   │   └── Mappers/
+│   │   │       ├── CustomerLookupRequestMapper.cs
+│   │   │       └── CustomerLookupResponseMapper.cs
+│   │
+│   │
+│   │   ├── AccountInquiry/
+│   │   │   ├── AccountInquiryFunction.cs
+│   │   │   ├── AccountInquiryValidator.cs
+│   │   │   ├── AccountInquiryHandler.cs
+│   │   │   ├── Models/
+│   │   │   └── Mappers/
+│   │
+│   │
+│   │   └── PaymentStatus/
+│   │       ├── PaymentStatusFunction.cs
+│   │       ├── PaymentStatusValidator.cs
+│   │       ├── PaymentStatusHandler.cs
+│   │       ├── Models/
+│   │       └── Mappers/
+│   │
+│   └── GeneratedSoap/
+│       └── CustomerService/
+│           └── Reference.cs
+│
+└── tests/
+    ├── UnitTests/
+    └── IntegrationTests/
+```
+
+---
+
+# Processing Flow
+
+```text
+Azure Function
+      │
+      ▼
+Validate Request Schema
+      │
+      ▼
+Handler
+      │
+      ├── Log Start
+      │
+      ├── Request Mapper
+      │
+      ├── SOAP Client (APIM)
+      │
+      ├── Response Mapper
+      │
+      ├── Audit Cosmos DB
+      │
+      └── Log Success/Error
+      │
+      ▼
+Function Response
+```
+
+---
+
+# Sample Customer Lookup Service
+
+## Request Schema
+
+```csharp
+public class CustomerLookupRequest
+{
+    public string CustomerId { get; set; }
+}
+```
+
+---
+
+## Response Schema
+
+```csharp
+public class CustomerLookupResponse
+{
+    public string CustomerId { get; set; }
+
+    public string CustomerName { get; set; }
+
+    public string Status { get; set; }
+}
+```
+
+---
+
+# Validator
+
+Using FluentValidation.
+
+```csharp
+public class CustomerLookupValidator
+    : AbstractValidator<CustomerLookupRequest>
+{
+    public CustomerLookupValidator()
+    {
+        RuleFor(x => x.CustomerId)
+            .NotEmpty()
+            .MaximumLength(20);
+    }
+}
+```
+
+---
+
+# Generated SOAP Model
+
+Generated from WSDL
+
+```bash
+dotnet-svcutil CustomerService.wsdl
+```
+
+Produces
+
+```csharp
+CustomerLookupSoapRequest
+CustomerLookupSoapResponse
+```
+
+inside
+
+```text
+GeneratedSoap/
+   CustomerService/
+       Reference.cs
+```
+
+---
+
+# Request Mapper
+
+```csharp
+public class CustomerLookupRequestMapper
+{
+    public CustomerLookupSoapRequest Map(
+        CustomerLookupRequest request)
+    {
+        return new CustomerLookupSoapRequest
+        {
+            CustomerId = request.CustomerId
+        };
+    }
+}
+```
+
+---
+
+# Response Mapper
+
+```csharp
+public class CustomerLookupResponseMapper
+{
+    public CustomerLookupResponse Map(
+        CustomerLookupSoapResponse response)
+    {
+        return new CustomerLookupResponse
+        {
+            CustomerId = response.CustomerId,
+            CustomerName = response.CustomerName,
+            Status = response.Status
+        };
+    }
+}
+```
+
+---
+
+# SOAP Stub Client
+
+For now we mock APIM.
+
+```csharp
+public interface ISoapClient
+{
+    Task<CustomerLookupSoapResponse>
+        CustomerLookupAsync(
+            CustomerLookupSoapRequest request);
+}
+```
+
+```csharp
+public class SoapStubClient : ISoapClient
+{
+    public Task<CustomerLookupSoapResponse>
+        CustomerLookupAsync(
+            CustomerLookupSoapRequest request)
+    {
+        return Task.FromResult(
+            new CustomerLookupSoapResponse
+            {
+                CustomerId = request.CustomerId,
+                CustomerName = "John Smith",
+                Status = "Active"
+            });
+    }
+}
+```
+
+Later replace with actual APIM SOAP call.
+
+---
+
+# Audit Model
+
+```csharp
+public class AuditDocument
+{
+    public string id { get; set; }
+
+    public string CorrelationId { get; set; }
+
+    public string ServiceName { get; set; }
+
+    public string Request { get; set; }
+
+    public string Response { get; set; }
+
+    public DateTime CreatedDate { get; set; }
+
+    public bool Success { get; set; }
+}
+```
+
+---
+
+# Cosmos Repository
+
+```csharp
+public interface IAuditRepository
+{
+    Task SaveAsync(AuditDocument document);
+}
+```
+
+```csharp
+public class AuditRepository
+    : IAuditRepository
+{
+    private readonly Container _container;
+
+    public AuditRepository(CosmosClient client)
+    {
+        _container = client.GetContainer(
+            "AuditDb",
+            "Transactions");
+    }
+
+    public async Task SaveAsync(
+        AuditDocument document)
+    {
+        await _container.CreateItemAsync(
+            document,
+            new PartitionKey(document.ServiceName));
+    }
+}
+```
+
+---
+
+# Service Handler
+
+All business logic stays here.
+
+```csharp
+public class CustomerLookupHandler
+{
+    private readonly ILogger<CustomerLookupHandler> _logger;
+
+    private readonly ISoapClient _soapClient;
+
+    private readonly IAuditRepository _auditRepository;
+
+    public CustomerLookupHandler(
+        ILogger<CustomerLookupHandler> logger,
+        ISoapClient soapClient,
+        IAuditRepository auditRepository)
+    {
+        _logger = logger;
+        _soapClient = soapClient;
+        _auditRepository = auditRepository;
+    }
+
+    public async Task<CustomerLookupResponse> Handle(
+        CustomerLookupRequest request)
+    {
+        _logger.LogInformation(
+            "CustomerLookup Started");
+
+        var soapRequest =
+            new CustomerLookupRequestMapper()
+                .Map(request);
+
+        var soapResponse =
+            await _soapClient
+                .CustomerLookupAsync(
+                    soapRequest);
+
+        var response =
+            new CustomerLookupResponseMapper()
+                .Map(soapResponse);
+
+        await _auditRepository.SaveAsync(
+            new AuditDocument
+            {
+                id = Guid.NewGuid().ToString(),
+                ServiceName = "CustomerLookup",
+                Request =
+                    JsonSerializer.Serialize(request),
+                Response =
+                    JsonSerializer.Serialize(response),
+                Success = true,
+                CreatedDate = DateTime.UtcNow
+            });
+
+        _logger.LogInformation(
+            "CustomerLookup Completed");
+
+        return response;
+    }
+}
+```
+
+---
+
+# Azure Function
+
+```csharp
+public class CustomerLookupFunction
+{
+    private readonly CustomerLookupHandler _handler;
+
+    public CustomerLookupFunction(
+        CustomerLookupHandler handler)
+    {
+        _handler = handler;
+    }
+
+    [Function("CustomerLookup")]
+    public async Task<HttpResponseData> Run(
+        [HttpTrigger(
+            AuthorizationLevel.Function,
+            "post")]
+        HttpRequestData req)
+    {
+        var request =
+            await req.ReadFromJsonAsync
+                <CustomerLookupRequest>();
+
+        var response =
+            await _handler.Handle(request);
+
+        var httpResponse =
+            req.CreateResponse(
+                HttpStatusCode.OK);
+
+        await httpResponse
+            .WriteAsJsonAsync(response);
+
+        return httpResponse;
+    }
+}
+```
+
+---
+
+# Dependency Injection
+
+Program.cs
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices(services =>
+    {
+        services.AddSingleton<
+            ISoapClient,
+            SoapStubClient>();
+
+        services.AddSingleton<
+            IAuditRepository,
+            AuditRepository>();
+
+        services.AddScoped<
+            CustomerLookupHandler>();
+
+        services.AddValidatorsFromAssemblyContaining
+            <CustomerLookupValidator>();
+    })
+    .Build();
+
+host.Run();
+```
+
+---
+
+# Sample SOAP WSDL (for SvcUtil)
+
+Save as:
+
+```text
+Schemas/CustomerService.wsdl
+```
+
+```xml
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://tempuri.org/"
+             targetNamespace="http://tempuri.org/">
+
+  <message name="CustomerLookupRequest">
+      <part name="CustomerId"
+            type="xsd:string"/>
+  </message>
+
+  <message name="CustomerLookupResponse">
+      <part name="CustomerName"
+            type="xsd:string"/>
+  </message>
+
+</definitions>
+```
+
+Generate client:
+
+```bash
+dotnet tool install --global dotnet-svcutil
+
+dotnet-svcutil Schemas/CustomerService.wsdl
+```
+
+---
+
+# Sample Request
+
+```http
+POST /api/CustomerLookup
+```
+
+```json
+{
+  "customerId":"12345"
+}
+```
+
+---
+
+# Sample Response
+
+```json
+{
+  "customerId":"12345",
+  "customerName":"John Smith",
+  "status":"Active"
+}
+```
+
+---
+
+For a production enterprise implementation, I would add:
+
+* MediatR pipeline behavior
+* FluentValidation pipeline
+* Correlation Id middleware
+* OpenTelemetry tracing
+* Polly retry/circuit breaker
+* APIM SOAP client wrapper using HttpClientFactory
+* Centralized audit pipeline
+* Serilog + Application Insights
+* Options Pattern for APIM endpoints
+* Unit of Work for Cosmos writes
+* Contract testing for SOAP schemas
+* CI/CD with Azure DevOps or GitHub Actions
+* Separate Function App project and Domain/Application/Infrastructure class libraries (Clean Architecture)
+
+That would be the pattern typically used for 20–100+ SOAP-backed functions in a large enterprise Azure Function App.
