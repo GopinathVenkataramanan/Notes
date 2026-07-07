@@ -1,0 +1,168 @@
+Here are all four diagrams in raw Mermaid source.
+
+## 1. Current State — IBM BAW Architecture
+
+```mermaid
+graph TB
+    subgraph BAW["IBM BAW Process Application"]
+        BPD["BPD / Process\n(Main Business Process Diagram)"]
+        S1["Step 1\n(BAW Human/System Task or Subprocess)"]
+        S2["Step 2\n(BAW Human/System Task or Subprocess)"]
+        S3["Step N\n(BAW Human/System Task or Subprocess)"]
+        R1["Reusable Service Flow\nExternal Call A"]
+        R2["Reusable Service Flow\nExternal Call B"]
+        R3["Reusable Service Flow\nExternal Call C"]
+    end
+
+    EXT1[("External System 1\n(REST/SOAP/DB)")]
+    EXT2[("External System 2\n(REST/SOAP/DB)")]
+    EXT3[("External System 3\n(REST/SOAP/DB)")]
+
+    BPD --> S1
+    BPD --> S2
+    BPD --> S3
+    S1 --> R1
+    S1 --> R2
+    S2 --> R2
+    S2 --> R3
+    S3 --> R1
+    S3 --> R3
+    R1 --> EXT1
+    R2 --> EXT2
+    R3 --> EXT3
+
+    style BPD fill:#2b6cb0,color:#fff
+    style S1 fill:#4299e1,color:#fff
+    style S2 fill:#4299e1,color:#fff
+    style S3 fill:#4299e1,color:#fff
+    style R1 fill:#68d391,color:#1a202c
+    style R2 fill:#68d391,color:#1a202c
+    style R3 fill:#68d391,color:#1a202c
+```
+
+## 2. Target State — Azure Logic Apps Architecture
+
+```mermaid
+graph TB
+    TRIG(["Trigger\nHTTP / Event Grid / Service Bus / Schedule"])
+
+    subgraph MAIN["Main Logic App — Process Equivalent"]
+        MW["Main Workflow\n(Orchestrator: sequencing, decisions,\nparallel branches, error scopes)"]
+    end
+
+    subgraph STEPS["Child Logic Apps — Step Workflows"]
+        ST1["Step Workflow 1\n(Nested Logic App)"]
+        ST2["Step Workflow 2\n(Nested Logic App)"]
+        ST3["Step Workflow N\n(Nested Logic App)"]
+    end
+
+    subgraph REUSED["Reused Child Logic Apps — External Service Calls"]
+        RW1["Service Call Workflow A\n(e.g. Customer API)"]
+        RW2["Service Call Workflow B\n(e.g. Payment API)"]
+        RW3["Service Call Workflow C\n(e.g. Notification/DB)"]
+    end
+
+    subgraph PLATFORM["Supporting Azure Services"]
+        APIM["API Management\n(façade / throttling)"]
+        KV["Key Vault\n(secrets, connections)"]
+        LA["Log Analytics / App Insights\n(monitoring, tracking)"]
+        SB["Service Bus / Storage\n(state, queues, retries)"]
+    end
+
+    EXT1[("External System 1")]
+    EXT2[("External System 2")]
+    EXT3[("External System 3")]
+
+    TRIG --> MW
+    MW -->|"Invoke Workflow action"| ST1
+    MW -->|"Invoke Workflow action"| ST2
+    MW -->|"Invoke Workflow action"| ST3
+
+    ST1 -->|"Invoke Workflow action"| RW1
+    ST1 --> RW2
+    ST2 --> RW2
+    ST2 --> RW3
+    ST3 --> RW1
+    ST3 --> RW3
+
+    RW1 --> APIM --> EXT1
+    RW2 --> APIM --> EXT2
+    RW3 --> APIM --> EXT3
+
+    MW -.-> KV
+    ST1 -.-> KV
+    RW1 -.-> KV
+    MW -.-> LA
+    ST1 -.-> LA
+    RW1 -.-> LA
+    MW -.-> SB
+
+    style MW fill:#2b6cb0,color:#fff
+    style ST1 fill:#4299e1,color:#fff
+    style ST2 fill:#4299e1,color:#fff
+    style ST3 fill:#4299e1,color:#fff
+    style RW1 fill:#68d391,color:#1a202c
+    style RW2 fill:#68d391,color:#1a202c
+    style RW3 fill:#68d391,color:#1a202c
+    style APIM fill:#f6ad55,color:#1a202c
+    style KV fill:#cbd5e0,color:#1a202c
+    style LA fill:#cbd5e0,color:#1a202c
+    style SB fill:#cbd5e0,color:#1a202c
+```
+
+## 3. Call Sequence
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant TR as Trigger Source
+    participant MW as Main Logic App<br/>(Process)
+    participant ST as Step Logic App<br/>(Child Workflow)
+    participant RW as Reused Logic App<br/>(Service Call)
+    participant EXT as External System
+
+    TR->>MW: Start process (payload)
+    activate MW
+    MW->>MW: Evaluate condition / branch
+    MW->>ST: Invoke Workflow (Step 1 inputs)
+    activate ST
+    ST->>RW: Invoke Workflow (service inputs)
+    activate RW
+    RW->>EXT: HTTP/REST call
+    activate EXT
+    EXT-->>RW: Response / fault
+    deactivate EXT
+    RW-->>ST: Result (success/failure)
+    deactivate RW
+    ST->>ST: Map response, apply step logic
+    ST-->>MW: Step output / status
+    deactivate ST
+    MW->>MW: Update process state,<br/>evaluate next step
+    MW-->>TR: Process response / completion event
+    deactivate MW
+```
+
+## 4. Migration Roadmap
+
+```mermaid
+graph LR
+    A["Phase 1\nDiscovery & Assessment\n- Inventory BAW processes,\nsteps, service flows,\nBOs, integrations"]
+    B["Phase 2\nTarget Design\n- Define Logic App hierarchy\n- Connector strategy\n- Error/state model"]
+    C["Phase 3\nFoundation Build\n- Reused service-call\nworkflows\n- Shared schemas/connections"]
+    D["Phase 4\nStep Workflow Build\n- Child step Logic Apps\n- Business rules/mapping"]
+    E["Phase 5\nMain Process Build\n- Orchestration\n- Sequencing & decisions"]
+    F["Phase 6\nTest & Parallel Run\n- Functional, integration,\nperformance, parity testing"]
+    G["Phase 7\nCutover & Hypercare\n- Deploy, monitor,\ndecommission BAW"]
+
+    A --> B --> C --> D --> E --> F --> G
+
+    style A fill:#2b6cb0,color:#fff
+    style B fill:#2b6cb0,color:#fff
+    style C fill:#4299e1,color:#fff
+    style D fill:#4299e1,color:#fff
+    style E fill:#4299e1,color:#fff
+    style F fill:#68d391,color:#1a202c
+    style G fill:#68d391,color:#1a202c
+```
+
+Paste any of these into a `.mermaid` file, the Mermaid Live Editor, or a Markdown renderer that supports Mermaid to view/edit them. Want me to rename the placeholder step/service names to match your actual BAW artifacts?
