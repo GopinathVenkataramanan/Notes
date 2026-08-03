@@ -1,0 +1,560 @@
+If your priorities are:
+
+1. **100% open-source stack**
+2. **Scalable from MVP → production**
+3. **Web + mobile sharing code**
+4. **Docker-first deployment**
+5. **No AWS lock-in**
+6. **Can run on your own servers/VPS/Kubernetes later**
+
+then I would adjust the TurboStarter-style architecture slightly.
+
+The goal is a **cloud-agnostic, open-source SaaS platform architecture**.
+
+---
+
+# Recommended Open Source Stack
+
+## Core Platform
+
+| Area            | Technology                     | License            |
+| --------------- | ------------------------------ | ------------------ |
+| Monorepo        | Turborepo                      | MIT                |
+| Package manager | pnpm                           | MIT                |
+| Language        | TypeScript                     | Apache 2           |
+| Web             | Next.js                        | MIT                |
+| Mobile          | Expo React Native              | MIT                |
+| API             | Hono                           | MIT                |
+| ORM             | Drizzle ORM                    | Apache 2           |
+| Database        | PostgreSQL                     | PostgreSQL License |
+| Cache           | Redis / Valkey                 | BSD-style          |
+| Auth            | Better Auth                    | MIT                |
+| Validation      | Zod                            | MIT                |
+| API contracts   | OpenAPI + Zod                  | Open source        |
+| UI              | shadcn/ui                      | MIT                |
+| Styling         | Tailwind CSS                   | MIT                |
+| Container       | Docker                         | Apache 2           |
+| Orchestration   | Kubernetes                     | Apache 2           |
+| Reverse proxy   | Traefik                        | MIT                |
+| Monitoring      | Prometheus + Grafana           | Apache 2           |
+| Logs            | Loki                           | AGPLv3             |
+| Error tracking  | GlitchTip                      | MIT                |
+| Object storage  | MinIO                          | AGPLv3             |
+| CI/CD           | GitHub Actions / Woodpecker CI | Open source        |
+
+---
+
+# Final Architecture
+
+```
+                         Users
+                           |
+                           |
+                    Traefik Gateway
+                           |
+        -------------------------------------
+        |                                   |
+     Web App                            Mobile App
+     Next.js                             Expo
+        |                                   |
+        -------------------------------------
+                           |
+                    Typed API Client
+                           |
+                         Hono API
+                           |
+        -------------------------------------
+        |                 |                 |
+    PostgreSQL          Redis            MinIO
+    Drizzle             Cache            Files
+```
+
+---
+
+# Repository Structure
+
+```
+platform/
+
+apps/
+
+ ├── web
+ │    └── Next.js
+
+ ├── mobile
+ │    └── Expo
+
+ └── api
+      └── Hono
+
+
+packages/
+
+ ├── ui
+ │
+ ├── database
+ │
+ ├── auth
+ │
+ ├── api-client
+ │
+ ├── validation
+ │
+ ├── config
+ │
+ └── types
+
+
+services/
+
+ ├── postgres
+ ├── redis
+ ├── minio
+ ├── prometheus
+ └── grafana
+
+
+deploy/
+
+ ├── docker-compose.yml
+ │
+ ├── kubernetes/
+ │
+ └── helm/
+```
+
+---
+
+# Authentication Recommendation
+
+Instead of proprietary providers:
+
+## Better Auth
+
+Use:
+
+* Email/password
+* Magic links
+* OAuth
+* Passkeys
+* Sessions
+* Organizations
+* Roles
+
+Database:
+
+```
+users
+sessions
+accounts
+organizations
+memberships
+permissions
+```
+
+Runs completely inside your stack.
+
+---
+
+# Database Scaling Strategy
+
+Start:
+
+```
+PostgreSQL
+     |
+     |
+ Drizzle ORM
+```
+
+Later:
+
+```
+                PostgreSQL Primary
+
+                       |
+          -----------------------------
+          |                           |
+
+     Read Replica              Analytics DB
+
+                                ClickHouse
+```
+
+---
+
+# API Scaling Strategy
+
+Start:
+
+```
+Hono API
+(single container)
+```
+
+Scale:
+
+```
+              Load Balancer
+
+                    |
+
+       -------------------------
+       |          |            |
+
+    API-1       API-2        API-3
+
+
+                    |
+
+                Redis
+```
+
+Hono is lightweight and works well with horizontal scaling.
+
+---
+
+# File Storage
+
+Avoid AWS S3 dependency.
+
+Use:
+
+## MinIO
+
+S3-compatible:
+
+```
+Application
+      |
+      |
+   S3 API
+      |
+      |
+    MinIO
+```
+
+Later you can move to:
+
+* Cloudflare R2
+* Backblaze B2
+* AWS S3
+* Wasabi
+
+without changing application code.
+
+---
+
+# Deployment Options
+
+## Stage 1 — Development
+
+One machine:
+
+```
+docker compose up
+```
+
+Runs:
+
+```
+web
+api
+postgres
+redis
+minio
+grafana
+```
+
+---
+
+## Stage 2 — Production VPS
+
+Example:
+
+```
+Hetzner
+DigitalOcean
+Linode
+Vultr
+```
+
+Install:
+
+```
+Docker
+Traefik
+```
+
+Deploy:
+
+```
+docker compose production
+```
+
+---
+
+## Stage 3 — Enterprise Scale
+
+Move to:
+
+```
+Kubernetes
+
+       |
+       |
+   Helm Charts
+
+       |
+       |
+
+Multiple Nodes
+
+       |
+       |
+Containers:
+- web
+- api
+- workers
+- postgres
+- redis
+```
+
+No application rewrite.
+
+---
+
+# Kiro Setup for This Stack
+
+## `.kiro/steering/architecture.md`
+
+```md
+Project philosophy:
+
+This is an open-source, cloud-independent platform.
+
+Rules:
+
+- No vendor lock-in
+- Prefer self-hosted solutions
+- Every service must run through Docker
+- All infrastructure must have Kubernetes compatibility
+
+Technology:
+
+Frontend:
+Next.js + Expo
+
+Backend:
+Hono
+
+Database:
+PostgreSQL + Drizzle
+
+Auth:
+Better Auth
+
+Storage:
+MinIO
+
+Cache:
+Redis/Valkey
+
+Deployment:
+Docker first
+Kubernetes ready
+```
+
+---
+
+# Kiro Skill: Open Source Architect
+
+`.kiro/skills/opensource-architecture.md`
+
+```md
+You are a senior open-source platform architect.
+
+Priorities:
+
+1. Scalability
+2. Portability
+3. Maintainability
+4. Security
+
+Never introduce:
+
+- AWS-only services
+- Firebase lock-in
+- proprietary databases
+- closed-source infrastructure
+
+Prefer:
+
+- Docker
+- Kubernetes
+- PostgreSQL
+- Redis
+- Open standards
+```
+
+---
+
+# Kiro Skill: Platform Engineer
+
+```md
+You manage infrastructure.
+
+Always create:
+
+Dockerfile
+docker-compose.yml
+environment example files
+health checks
+migration scripts
+backup strategy
+
+
+Production requirements:
+
+- horizontal scaling
+- observability
+- security
+- disaster recovery
+```
+
+---
+
+# Kiro Feature Development Workflow
+
+For every feature:
+
+Prompt:
+
+```
+You are implementing a production feature.
+
+Before coding:
+
+Analyze:
+
+1. Database changes
+2. API changes
+3. Web changes
+4. Mobile changes
+5. Shared packages affected
+6. Docker impact
+7. Scaling considerations
+
+Create implementation plan.
+
+Wait for approval.
+```
+
+---
+
+# Open Source Observability Stack
+
+Instead of SaaS tools:
+
+## Metrics
+
+```
+Prometheus
+    |
+    |
+Grafana
+```
+
+## Logs
+
+```
+Containers
+    |
+    |
+Promtail
+    |
+    |
+Loki
+```
+
+## Errors
+
+Use:
+
+```
+GlitchTip
+```
+
+(Sentry-compatible open source)
+
+---
+
+# Security Stack
+
+Add:
+
+| Need               | Tool          |
+| ------------------ | ------------- |
+| Secrets            | Infisical     |
+| Vulnerability scan | Trivy         |
+| Dependency audit   | Renovate      |
+| Code scanning      | Semgrep       |
+| Reverse proxy      | Traefik       |
+| TLS                | Let's Encrypt |
+
+---
+
+# Suggested Final Stack
+
+If I were building this today:
+
+```
+Frontend
+---------
+Next.js
+Expo
+React Query
+Tailwind
+shadcn/ui
+
+
+Backend
+---------
+Hono
+Drizzle
+PostgreSQL
+Better Auth
+Zod
+
+
+Infrastructure
+---------
+Docker
+Docker Compose
+Traefik
+Kubernetes
+
+
+Data
+---------
+PostgreSQL
+Redis/Valkey
+MinIO
+
+
+Operations
+---------
+Prometheus
+Grafana
+Loki
+GlitchTip
+
+
+Automation
+---------
+GitHub Actions
+Renovate
+Trivy
+```
+
+This gives you a **TurboStarter-inspired open-source platform that can start on a $10–20/month VPS and grow into a Kubernetes deployment without a rewrite.**
