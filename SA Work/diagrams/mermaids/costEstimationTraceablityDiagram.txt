@@ -1,0 +1,45 @@
+
+flowchart BT
+    A["Final Vendor Cost Estimate"]
+    B["Resource Plan and Effort Estimates"]
+    C["Implementation Timeline and Milestones"]
+    D["Work Packages and Activities"]
+
+    E["Functional Scope"]
+    F["Technical Scope"]
+    G["Data Migration Scope"]
+    H["Testing and Quality Scope"]
+    I["Security and Compliance Scope"]
+    J["Deployment and Transition Scope"]
+
+    K["Business Requirements and Processes"]
+    L["Application and Integration Landscape"]
+    M["Data Inventory and Data Quality"]
+    N["NFRs and Architecture Requirements"]
+    O["Test Strategy and Acceptance Criteria"]
+    P["Project Constraints and Dependencies"]
+
+    A --> B
+    A --> C
+    B --> D
+    C --> D
+
+    D --> E
+    D --> F
+    D --> G
+    D --> H
+    D --> I
+    D --> J
+
+    E --> K
+    F --> L
+    F --> N
+    G --> M
+    H --> O
+    I --> N
+    J --> P
+
+    style A fill:#176B45,color:#fff
+    style B fill:#DCEBFA,color:#172B4D
+    style C fill:#DCEBFA,color:#172B4D
+    style D fill:#DCEBFA,color:#172B4D

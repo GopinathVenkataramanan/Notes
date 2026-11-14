@@ -1,0 +1,30 @@
+
+flowchart LR
+    U["Claims Officers"]
+    M["Claims Managers"]
+    C["Customers / Partners"]
+
+    subgraph DC["Client On-Premises Data Centre"]
+        APP["Legacy Claims Application"]
+        DB[("Claims Database")]
+        DOC[("Document Repository")]
+        APP --> DB
+        APP --> DOC
+    end
+
+    subgraph EXT["External Systems"]
+        CRM["CRM"]
+        FIN["Finance / ERP"]
+        ID["Identity Provider"]
+        PAY["Payment Gateway"]
+        REP["Reporting Platform"]
+    end
+
+    U --> APP
+    M --> APP
+    C --> APP
+    CRM <--> APP
+    FIN <--> APP
+    ID --> APP
+    APP <--> PAY
+    APP --> REP

@@ -1,0 +1,48 @@
+
+flowchart TB
+    subgraph PRESENTATION["Presentation Layer"]
+        WEB["Web Application"]
+        PORTAL["Customer Portal"]
+    end
+
+    subgraph APP["Application Layer"]
+        CORE["Legacy Claims Engine"]
+        WF["Workflow Engine"]
+        RULE["Business Rules Engine"]
+        BATCH["Batch Processing"]
+    end
+
+    subgraph INTEGRATION["Integration Layer"]
+        ESB["Enterprise Service Bus"]
+        API["API Gateway"]
+        MQ["Message Queue"]
+    end
+
+    subgraph DATA["Data Layer"]
+        DB[("Relational Database")]
+        DOC[("Document Store")]
+        DW[("Data Warehouse")]
+    end
+
+    subgraph INFRA["Infrastructure Layer"]
+        VM["Virtual Machines"]
+        OS["Operating Systems"]
+        MON["Monitoring"]
+        BACKUP["Backup / DR"]
+    end
+
+    WEB --> CORE
+    PORTAL --> CORE
+    CORE --> WF
+    CORE --> RULE
+    CORE --> BATCH
+    CORE <--> ESB
+    CORE <--> API
+    CORE <--> MQ
+    CORE --> DB
+    CORE --> DOC
+    BATCH --> DW
+    CORE --> VM
+    VM --> OS
+    VM --> MON
+    DB --> BACKUP

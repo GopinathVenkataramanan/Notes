@@ -1,0 +1,29 @@
+
+flowchart LR
+    U["Business Users"]
+    ADM["SaaS Administrators"]
+    SVC["Integration Service Accounts"]
+
+    subgraph CLIENT["Client Security Boundary"]
+        IDP["Microsoft Entra ID"]
+        MFA["MFA / Conditional Access"]
+        PAM["Privileged Access Management"]
+    end
+
+    subgraph SAAS["SaaS Provider Security Boundary"]
+        FED["SAML / OIDC Federation"]
+        RBAC["Role-Based Access Control"]
+        AUDIT["Audit Logging"]
+        ENC["Encryption and Key Management"]
+    end
+
+    U --> IDP
+    ADM --> IDP
+    IDP --> MFA
+    MFA --> FED
+    ADM --> PAM
+    PAM --> FED
+    FED --> RBAC
+    SVC --> FED
+    RBAC --> AUDIT
+    RBAC --> ENC

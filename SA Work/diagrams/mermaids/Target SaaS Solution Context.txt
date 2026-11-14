@@ -1,0 +1,37 @@
+
+flowchart LR
+    USERS["Internal Users"]
+    CUSTOMERS["Customers / Partners"]
+
+    subgraph CLIENT["Client Enterprise"]
+        IAM["Entra ID / Identity"]
+        APIM["Enterprise API Gateway"]
+        INT["Integration Platform"]
+        CRM["CRM"]
+        FIN["Finance System"]
+        BI["Enterprise Reporting"]
+    end
+
+    subgraph SAAS["Vendor-Hosted SaaS Platform"]
+        UI["SaaS User Interface"]
+        CLAIM["Claims Management"]
+        WF["Workflow and Rules"]
+        DOC["Document Management"]
+        REP["SaaS Reporting"]
+        DB[("Vendor Managed Data Store")]
+
+        UI --> CLAIM
+        CLAIM --> WF
+        CLAIM --> DOC
+        CLAIM --> REP
+        CLAIM --> DB
+    end
+
+    USERS --> UI
+    CUSTOMERS --> UI
+    IAM --> UI
+    APIM <--> INT
+    INT <--> CLAIM
+    CLAIM <--> CRM
+    CLAIM <--> FIN
+    REP --> BI

@@ -1,0 +1,20 @@
+
+flowchart LR
+    A["Legacy On-Prem Application"]
+    B["Historical Data Extraction"]
+    C["Data Migration"]
+    D["SaaS Platform"]
+    E["Validation and Reconciliation"]
+    F["Business Cutover"]
+    G["Legacy Read-Only / Archive"]
+    H["Legacy Decommissioning"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+
+    A -. "Temporary coexistence" .-> D

@@ -1,0 +1,27 @@
+
+flowchart TB
+    subgraph VENDOR["SaaS Provider Responsibilities"]
+        A["Cloud Infrastructure"]
+        B["Platform Availability"]
+        C["SaaS Application Maintenance"]
+        D["Product Patching and Upgrades"]
+        E["Platform Backup and DR"]
+        F["Platform Security"]
+    end
+
+    subgraph SHARED["Shared Responsibilities"]
+        G["Identity and Access"]
+        H["Integration Management"]
+        I["Incident Management"]
+        J["Security Monitoring"]
+        K["Release Coordination"]
+    end
+
+    subgraph CLIENT["Client Responsibilities"]
+        L["Business Configuration Approval"]
+        M["User Access Governance"]
+        N["Business Data Ownership"]
+        O["UAT and Acceptance"]
+        P["Business Process Management"]
+        Q["Enterprise Integration Ownership"]
+    end

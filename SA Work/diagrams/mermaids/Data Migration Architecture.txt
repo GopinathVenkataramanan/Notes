@@ -1,0 +1,32 @@
+
+flowchart LR
+    subgraph LEGACY["On-Prem Legacy"]
+        DB[("Claims Database")]
+        DOC[("Document Repository")]
+        HIST[("Historical Records")]
+    end
+
+    subgraph MIG["Migration Services"]
+        EXT["Data Extraction"]
+        STAGE[("Staging Area")]
+        CLEAN["Data Cleansing"]
+        MAP["Transformation and Mapping"]
+        VALID["Validation and Reconciliation"]
+    end
+
+    subgraph SAAS["Vendor SaaS"]
+        LOAD["Bulk Import / APIs"]
+        TARGET[("SaaS Data Store")]
+        ARCH["Historical Archive"]
+    end
+
+    DB --> EXT
+    DOC --> EXT
+    HIST --> EXT
+    EXT --> STAGE
+    STAGE --> CLEAN
+    CLEAN --> MAP
+    MAP --> VALID
+    VALID --> LOAD
+    LOAD --> TARGET
+    VALID --> ARCH

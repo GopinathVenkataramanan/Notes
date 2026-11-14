@@ -1,0 +1,36 @@
+
+flowchart TB
+    A["SaaS Replacement - Vendor Cost Estimate"]
+
+    A --> B["SaaS Subscription and Licensing"]
+    A --> C["Product Configuration and Extensions"]
+    A --> D["Integration Implementation"]
+    A --> E["Data Migration"]
+    A --> F["Security and Compliance"]
+    A --> G["Testing and Quality"]
+    A --> H["Deployment and Transition"]
+    A --> I["Project and Change Management"]
+
+    B --> B1["Users, modules, environments, consumption"]
+    C --> C1["Fit-gap, workflows, rules, forms, reports"]
+    D --> D1["APIs, middleware, events, external systems"]
+    E --> E1["Legacy data, cleansing, mapping, history"]
+    F --> F1["IAM, privacy, residency, accreditation, audit"]
+    G --> G1["SIT, UAT, regression, performance, security"]
+    H --> H1["Cutover, training, legacy decommissioning"]
+    I --> I1["Governance, resources, change and adoption"]
+
+    B1 --> Z["Discovery Evidence and Validated Assumptions"]
+    C1 --> Z
+    D1 --> Z
+    E1 --> Z
+    F1 --> Z
+    G1 --> Z
+    H1 --> Z
+    I1 --> Z
+
+    Z --> X["Vendor WBS, Resource Plan, Timeline and Commercial Proposal"]
+
+    style A fill:#176B45,color:#fff
+    style Z fill:#DCEBFA,color:#172B4D
+    style X fill:#176B45,color:#fff

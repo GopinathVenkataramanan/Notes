@@ -1,0 +1,35 @@
+
+flowchart LR
+    subgraph SAAS["SaaS Platform"]
+        APP["Claims SaaS"]
+        API["SaaS REST APIs"]
+        WEBHOOK["Webhooks / Events"]
+    end
+
+    subgraph CLIENT["Client Integration Boundary"]
+        APIM["API Management"]
+        INT["Integration Services / iPaaS"]
+        SB["Message Broker"]
+        SFTP["Secure File Transfer"]
+    end
+
+    subgraph SYSTEMS["Enterprise Systems"]
+        CRM["CRM"]
+        ERP["Finance"]
+        DOC["Document Services"]
+        BI["Data Platform"]
+        EXT["External Government Services"]
+    end
+
+    APP <--> API
+    APP --> WEBHOOK
+    API <--> APIM
+    WEBHOOK --> APIM
+    APIM <--> INT
+    INT <--> SB
+    INT <--> SFTP
+    INT <--> CRM
+    INT <--> ERP
+    INT <--> DOC
+    INT --> EXT
+    INT --> BI

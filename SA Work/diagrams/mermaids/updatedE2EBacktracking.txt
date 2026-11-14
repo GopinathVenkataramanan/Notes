@@ -1,0 +1,54 @@
+
+flowchart BT
+    A["FINAL SAAS VENDOR COST"]
+    B["Licensing + Implementation + Migration + Integration + Testing + Operations"]
+    C["Vendor Work Breakdown Structure"]
+    D["Effort by Role, Timeline and Dependencies"]
+
+    E["Product Fit-Gap and Configuration"]
+    F["Integration and Technical Scope"]
+    G["Data Migration Scope"]
+    H["Security, NFR and Compliance"]
+    I["Testing, Cutover and Transition"]
+
+    J["Business Requirements and Processes"]
+    K["Current-State Application and Integration Inventory"]
+    L["Data Inventory, Quality and Mapping"]
+    M["SaaS Architecture and Enterprise Constraints"]
+    N["Test Strategy and Acceptance Criteria"]
+    O["Project Scope, Resources and Delivery Constraints"]
+
+    A --> B --> C --> D
+    D --> E
+    D --> F
+    D --> G
+    D --> H
+    D --> I
+
+    E --> J
+    F --> K
+    F --> M
+    G --> L
+    H --> M
+    I --> N
+    I --> O
+
+    J --> BA["BA TEAM"]
+    K --> TBA["TECHNICAL BA"]
+    L --> TBA
+    M --> SA["CLIENT SOLUTION ARCHITECT"]
+    N --> QA["TEST TEAM"]
+    O --> PM["PROJECT TEAM"]
+
+    BA --> X["CONSOLIDATED DISCOVERY PACK"]
+    TBA --> X
+    SA --> X
+    QA --> X
+    PM --> X
+
+    X --> V["VENDOR VALIDATION AND ESTIMATION"]
+    V --> A
+
+    style A fill:#176B45,color:#fff
+    style X fill:#DCEBFA,color:#172B4D
+    style V fill:#DCEBFA,color:#172B4D

@@ -1,0 +1,47 @@
+
+flowchart TB
+    COST["VENDOR COST ESTIMATE"]
+
+    COST --> LIC["Licensing and Product Costs"]
+    COST --> IMP["Implementation Effort"]
+    COST --> MIG["Migration Costs"]
+    COST --> INT["Integration Costs"]
+    COST --> TST["Testing Costs"]
+    COST --> SEC["Security and Compliance Costs"]
+    COST --> PM["Project and Delivery Costs"]
+    COST --> OPS["Deployment and Support Costs"]
+
+    LIC --> L1["User volumes, modules, environments"]
+    IMP --> I1["Requirements, processes, business rules"]
+    MIG --> M1["Data inventory, volumes, mappings"]
+    INT --> N1["Integration catalogue, interface specifications"]
+    TST --> T1["Test strategy, scenarios, coverage"]
+    SEC --> S1["NFRs, security controls, accreditation"]
+    PM --> P1["Delivery plan, governance, resource assumptions"]
+    OPS --> O1["Cutover, training, transition, hypercare"]
+
+    L1 --> BA["BA TEAM"]
+    I1 --> BA
+    M1 --> TBA["TECHNICAL BA"]
+    N1 --> TBA
+    T1 --> QA["TEST TEAM"]
+    S1 --> SA["CLIENT SOLUTION ARCHITECT"]
+    O1 --> PMO["PROJECT TEAM"]
+    P1 --> PMO
+
+    BA --> INPUTS["CONSOLIDATED DISCOVERY INPUTS"]
+    TBA --> INPUTS
+    QA --> INPUTS
+    SA --> INPUTS
+    PMO --> INPUTS
+
+    INPUTS --> VENDOR["VENDOR ESTIMATION AND VALIDATION"]
+    VENDOR --> WBS["Work Breakdown Structure"]
+    WBS --> EFFORT["Resource Loading and Effort"]
+    EFFORT --> SCHEDULE["Timeline and Dependencies"]
+    SCHEDULE --> COMM["FINAL COMMERCIAL PROPOSAL"]
+
+    style COST fill:#176B45,color:#fff
+    style INPUTS fill:#DCEBFA,color:#172B4D
+    style VENDOR fill:#DCEBFA,color:#172B4D
+    style COMM fill:#176B45,color:#fff

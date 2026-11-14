@@ -1,0 +1,26 @@
+
+flowchart TB
+    subgraph VENDOR["SaaS Vendor Managed"]
+        DEV["Development / Configuration"]
+        TEST["SIT Environment"]
+        UAT["UAT Environment"]
+        PROD["Production Environment"]
+    end
+
+    subgraph CLIENT["Client Managed"]
+        DEVINT["DEV Integration"]
+        SITINT["SIT Integration"]
+        UATINT["UAT Integration"]
+        PRODINT["PROD Integration"]
+        CICD["Release / Deployment Pipeline"]
+    end
+
+    DEV <--> DEVINT
+    TEST <--> SITINT
+    UAT <--> UATINT
+    PROD <--> PRODINT
+
+    CICD --> DEV
+    CICD --> TEST
+    CICD --> UAT
+    CICD --> PROD

@@ -1,0 +1,17 @@
+
+flowchart TB
+    APP["SaaS Application"]
+
+    APP --> AV["Availability"]
+    APP --> PERF["Performance"]
+    APP --> SEC["Security"]
+    APP --> DR["Disaster Recovery"]
+    APP --> MON["Monitoring"]
+    APP --> AUD["Audit and Logging"]
+
+    AV --> AV1["Availability SLA"]
+    PERF --> P1["Response Time / Throughput"]
+    SEC --> S1["Encryption / Vulnerability Management"]
+    DR --> D1["RTO / RPO / Backup"]
+    MON --> M1["Health Monitoring / Alerts"]
+    AUD --> A1["Audit Trails / Log Retention"]
