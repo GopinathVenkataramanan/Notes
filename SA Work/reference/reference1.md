@@ -1,363 +1,629 @@
-# **Client Solution Architect – diagrams to produce for SaaS replacement**
+Vendor Discovery Workshop – Deliverables and Cost Estimation Framework
+For your claims replacement project (legacy claims/client management platform to a COTS cloud solution such as Salesforce), I recommend structuring the discovery workshop around one key objective:
+The client team must provide enough business, functional, technical, integration, data, security and testing information for the vendor to produce a defensible solution scope, implementation approach, resource plan, timeline and cost estimate.
+Rather than simply sending documents to the vendor, work backwards from the expected cost estimate and identify the evidence required to support every cost component.
+I would organise the deliverables into five workstreams:
+Business Analysis (BA) team
+Technical team – Client Solution Architect and Technical BA
+Testing / QA team
+Project Management team
+Vendor – discovery outputs and estimation
+1. Work backwards from the cost outcome
+The vendor's final commercial estimate should be broken down into these components:
+Cost component
+What drives the cost?
+Product / licensing
+User volumes, modules, environments, licences
+Functional implementation
+Business processes, features, configuration and customisation
+Integration
+Number, complexity and type of interfaces
+Data migration
+Data volumes, quality, transformation and history
+Security and compliance
+Security controls, identity, privacy, accreditation
+Infrastructure / environments
+Cloud environments, connectivity, deployment architecture
+Testing
+SIT, UAT, regression, performance and security testing
+Deployment
+Cutover, release, migration and go-live
+Project management
+Governance, coordination, reporting and vendor management
+Support and transition
+Training, knowledge transfer, warranty and hypercare
+
+Each cost component needs to be traceable to a set of discovery documents and validated assumptions.
+Cost estimation traceability diagram
+#chatgpt-mermaid-_r_1ri_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(13, 13, 13);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-_r_1ri_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_1ri_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_1ri_ .error-icon{fill:rgb(243, 243, 243);}#chatgpt-mermaid-_r_1ri_ .error-text{fill:rgb(13, 13, 13);stroke:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1ri_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-_r_1ri_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-_r_1ri_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-_r_1ri_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-_r_1ri_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-_r_1ri_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-_r_1ri_ .marker{fill:rgb(143, 143, 143);stroke:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1ri_ .marker.cross{stroke:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1ri_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-_r_1ri_ p{margin:0;}#chatgpt-mermaid-_r_1ri_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1ri_ .cluster-label text{fill:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1ri_ .cluster-label span{color:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1ri_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-_r_1ri_ .label text,#chatgpt-mermaid-_r_1ri_ span{fill:rgb(13, 13, 13);color:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1ri_ .node rect,#chatgpt-mermaid-_r_1ri_ .node circle,#chatgpt-mermaid-_r_1ri_ .node ellipse,#chatgpt-mermaid-_r_1ri_ .node polygon,#chatgpt-mermaid-_r_1ri_ .node path{fill:rgb(222, 234, 251);stroke:rgb(83, 154, 248);stroke-width:1px;}#chatgpt-mermaid-_r_1ri_ .rough-node .label text,#chatgpt-mermaid-_r_1ri_ .node .label text,#chatgpt-mermaid-_r_1ri_ .image-shape .label,#chatgpt-mermaid-_r_1ri_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-_r_1ri_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-_r_1ri_ .rough-node .label,#chatgpt-mermaid-_r_1ri_ .node .label,#chatgpt-mermaid-_r_1ri_ .image-shape .label,#chatgpt-mermaid-_r_1ri_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-_r_1ri_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-_r_1ri_ .root .anchor path{fill:rgb(143, 143, 143)!important;stroke-width:0;stroke:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1ri_ .arrowheadPath{fill:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1ri_ .edgePath .path{stroke:rgb(143, 143, 143);stroke-width:1px;}#chatgpt-mermaid-_r_1ri_ .flowchart-link{stroke:rgb(143, 143, 143);fill:none;}#chatgpt-mermaid-_r_1ri_ .edgeLabel{background-color:rgb(252, 252, 252);text-align:center;}#chatgpt-mermaid-_r_1ri_ .edgeLabel p{background-color:rgb(252, 252, 252);}#chatgpt-mermaid-_r_1ri_ .edgeLabel rect{opacity:0.5;background-color:rgb(252, 252, 252);fill:rgb(252, 252, 252);}#chatgpt-mermaid-_r_1ri_ .labelBkg{background-color:rgba(252, 252, 252, 0.5);}#chatgpt-mermaid-_r_1ri_ .cluster rect{fill:rgb(243, 243, 243);stroke:rgba(0, 0, 0, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_1ri_ .cluster text{fill:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1ri_ .cluster span{color:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1ri_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(243, 243, 243);border:1px solid rgba(0, 0, 0, 0.1);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-_r_1ri_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1ri_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-_r_1ri_ .icon-shape,#chatgpt-mermaid-_r_1ri_ .image-shape{background-color:rgb(252, 252, 252);text-align:center;}#chatgpt-mermaid-_r_1ri_ .icon-shape p,#chatgpt-mermaid-_r_1ri_ .image-shape p{background-color:rgb(252, 252, 252);padding:2px;}#chatgpt-mermaid-_r_1ri_ .icon-shape .label rect,#chatgpt-mermaid-_r_1ri_ .image-shape .label rect{opacity:0.5;background-color:rgb(252, 252, 252);fill:rgb(252, 252, 252);}#chatgpt-mermaid-_r_1ri_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-_r_1ri_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-_r_1ri_ .node .neo-node{stroke:rgb(83, 154, 248);}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].node rect,#chatgpt-mermaid-_r_1ri_ [data-look="neo"].cluster rect,#chatgpt-mermaid-_r_1ri_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-_r_1ri_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-_r_1ri_-gradient);stroke-width:1px;}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].node .neo-line path{stroke:rgb(83, 154, 248);filter:none;}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-_r_1ri_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-_r_1ri_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1ri_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-_r_1ri_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1ri_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(0, 79, 153);}#chatgpt-mermaid-_r_1ri_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(0, 79, 153);}#chatgpt-mermaid-_r_1ri_ .node tspan[font-weight="normal"],#chatgpt-mermaid-_r_1ri_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-_r_1ri_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(245, 250, 255);stroke:rgb(206, 219, 229);stroke-width:1px;}#chatgpt-mermaid-_r_1ri_ .node rect,#chatgpt-mermaid-_r_1ri_ .node circle,#chatgpt-mermaid-_r_1ri_ .node ellipse,#chatgpt-mermaid-_r_1ri_ .node polygon,#chatgpt-mermaid-_r_1ri_ .node path{fill:rgb(229, 243, 255);stroke:rgba(0, 0, 0, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_1ri_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-_r_1ri_ .mermaid-decision .label-container{fill:rgb(245, 250, 255);stroke:rgb(206, 219, 229);stroke-dasharray:2,2;}#chatgpt-mermaid-_r_1ri_ .edgePaths .flowchart-link{stroke:rgb(143, 143, 143);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-_r_1ri_ .marker{fill:rgb(143, 143, 143);stroke:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1ri_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Final Vendor Cost EstimateResource Plan and EffortEstimatesImplementation Timeline andMilestonesWork Packages and ActivitiesFunctional ScopeTechnical ScopeData Migration ScopeTesting and Quality ScopeSecurity and Compliance ScopeDeployment and TransitionScopeBusiness Requirements andProcessesApplication and IntegrationLandscapeData Inventory and DataQualityNFRs and ArchitectureRequirementsTest Strategy and AcceptanceCriteriaProject Constraints andDependencies
+How to interpret this: The vendor should not arrive at a cost figure based only on a high-level business requirement. Every significant effort estimate should be traceable down to a defined scope item, complexity assumption, dependency or deliverable.
+2. Deliverables required from each client team
+A. Business Analysis (BA) team
+Business and functional discovery
+The BA team is responsible for helping the vendor understand what the business does today, what the replacement solution must achieve, and what functionality needs to be implemented.
+#
+Deliverable
+Expected contents
+Why vendor needs it
+1
+Business Context Document
+Business objectives, drivers, problems, expected outcomes
+Understand project purpose
+2
+Business Capability Map
+Claims, customer management, assessment, payments, reporting, case management
+Identify functional scope
+3
+As-Is Business Process Maps
+Existing end-to-end business workflows
+Understand current operations
+4
+To-Be Business Process Maps
+Target processes and proposed changes
+Identify configuration and implementation effort
+5
+Business Requirements Catalogue
+Functional requirements with IDs and priorities
+Establish scope
+6
+User Stories / Use Cases
+Actors, scenarios, preconditions, exceptions and outcomes
+Estimate feature development
+7
+Business Rules Catalogue
+Eligibility, validation, calculations, routing and decision rules
+Estimate rules configuration
+8
+Forms and Document Inventory
+Forms, templates, letters, notifications and attachments
+Estimate document configuration
+9
+Reports and Analytics Catalogue
+Operational reports, dashboards and regulatory reporting
+Estimate reporting effort
+10
+User Roles and Personas
+Business roles, responsibilities and access expectations
+Estimate role and permission configuration
+11
+Business Volumes and Workload
+Claims per year, active claims, users, transactions and peak volumes
+Sizing and performance assumptions
+12
+Business Acceptance Criteria
+Expected outcomes and acceptance conditions
+Support estimation and UAT planning
+13
+Scope and Prioritisation Matrix
+Must-have, should-have, could-have, future phase
+Define implementation phases
+
+Important: The BA team should identify exceptions and variations in business processes, not just document the happy path.
+For example, claims may have different workflows depending on claim type, complexity, eligibility, assessment outcome and payment scenario. These variations can significantly affect implementation costs.
+B. Technical team – Client Solution Architect and Technical BA
+Architecture and technical discovery
+This is one of the most important workstreams because the vendor needs to understand the existing technology landscape and the target architecture constraints.
+I would split the responsibility between the Client Solution Architect (SA) and Technical BA.
+B1. Client Solution Architect deliverables
+#
+Deliverable
+Expected contents
+Why vendor needs it
+1
+Solution Context Diagram
+Systems, users, external parties and boundaries
+Understand solution boundaries
+2
+Current-State Architecture
+Existing application, infrastructure and technology landscape
+Understand legacy constraints
+3
+Target-State Architecture Principles
+Enterprise standards, approved technologies and constraints
+Avoid architectural misalignment
+4
+Target Solution Architecture (High Level)
+COTS platform, surrounding systems, cloud services and integration patterns
+Define implementation approach
+5
+Application Landscape Diagram
+Upstream/downstream systems and ownership
+Identify dependencies
+6
+Integration Architecture
+API gateway, middleware, eventing, synchronous/asynchronous patterns
+Estimate integration design and build
+7
+Security Architecture Requirements
+Authentication, authorisation, encryption, identity and audit
+Estimate security implementation
+8
+Non-Functional Requirements (NFRs)
+Availability, scalability, performance, resilience, DR and monitoring
+Estimate technical complexity
+9
+Environment Architecture
+DEV, SIT, UAT, PRE-PROD, PROD and connectivity
+Estimate environment setup
+10
+Infrastructure and Network Requirements
+Connectivity, DNS, firewalls, private endpoints and certificates
+Identify infrastructure effort
+11
+Architecture Risks and Constraints
+Legacy dependencies, technology limitations, compliance constraints
+Identify risks and contingencies
+12
+Architecture Decision / Open Issues Register
+Decisions, unresolved topics, assumptions and owners
+Prevent estimation gaps
+
+B2. Technical BA deliverables
+The Technical BA bridges architecture and detailed technical discovery.
+#
+Deliverable
+Expected contents
+Why vendor needs it
+1
+System Inventory
+System names, purpose, technology, owner and hosting
+Establish system scope
+2
+Integration Inventory
+Source, target, business purpose, direction and frequency
+Count interfaces
+3
+Interface Catalogue
+API, SOAP, REST, files, events, batch and protocols
+Estimate interface complexity
+4
+Interface Specification
+Payloads, schemas, authentication, operations and error handling
+Estimate integration build
+5
+Data Entity Catalogue
+Claim, claimant, policy, payment, assessment, documents etc.
+Understand data scope
+6
+Data Mapping Requirements
+Source-to-target entities and field-level mapping where available
+Estimate transformation
+7
+Data Migration Inventory
+Historical records, attachments, documents and volumes
+Estimate migration
+8
+Batch and Scheduled Jobs Inventory
+Frequency, dependencies, schedules and processing volumes
+Estimate batch migration
+9
+External System Dependencies
+Third-party services, government systems and partner interfaces
+Identify external dependencies
+10
+Technical Constraints Register
+Legacy limitations, undocumented interfaces and dependencies
+Estimate complexity and risk
+11
+Data Retention and Archival Requirements
+Retention, historical access, disposal and archival
+Estimate data and storage requirements
+12
+Existing Technical Documentation
+API specifications, schemas, database models and operational documents
+Reduce discovery uncertainty
+
+SA versus Technical BA distinction:
+The Client SA defines the architectural direction, constraints, standards and target architecture.
+The Technical BA discovers and documents the detailed technical requirements, interfaces, data structures and dependencies.
+The vendor validates the information and produces the detailed implementation design.
+The client SA should not be expected to produce detailed vendor solution designs before the discovery workshop.
+C. Testing and QA team
+Quality and test estimation
+Testing effort is frequently underestimated during vendor discovery. The test team should provide the vendor with the following:
+#
+Deliverable
+Expected contents
+Why vendor needs it
+1
+Test Strategy
+Overall testing approach and test levels
+Establish testing scope
+2
+Test Scope Matrix
+Functional, integration, regression, performance, security and accessibility
+Identify test types
+3
+Test Environment Requirements
+Environments, connectivity, tools and test data
+Estimate setup effort
+4
+Test Data Requirements
+Data volumes, scenarios, synthetic data and masking
+Estimate test data preparation
+5
+Integration Testing Inventory
+Systems and interfaces requiring validation
+Estimate SIT
+6
+Regression Testing Scope
+Existing functionality and business scenarios to preserve
+Estimate regression effort
+7
+Performance Testing Requirements
+Expected concurrency, response times and throughput
+Estimate performance testing
+8
+Security Testing Requirements
+Vulnerability assessment, penetration testing and remediation
+Estimate security testing
+9
+UAT Approach
+Business participation, scenarios, acceptance and sign-off
+Estimate UAT support
+10
+Defect Management Process
+Severity definitions, triage and resolution expectations
+Estimate defect cycles
+11
+Test Automation Requirements
+Automation coverage, tools and frameworks
+Estimate automation effort
+12
+Test Completion Criteria
+Coverage, pass rates, defect thresholds and sign-off
+Establish exit criteria
+
+The test team should also identify which testing activities are vendor-owned and which are client-owned.
+For example, the vendor may own developer testing, SIT execution and defect resolution, while the client owns business UAT and final business acceptance.
+D. Project Management team
+Delivery and commercial discovery
+The project team provides the delivery constraints and governance information that allows the vendor to estimate the implementation timeline, team structure and project management effort.
+#
+Deliverable
+Expected contents
+Why vendor needs it
+1
+Project Initiation / Business Case
+Objectives, scope, outcomes and drivers
+Understand project context
+2
+High-Level Project Plan
+Key milestones, target dates and phases
+Estimate duration
+3
+Scope Boundaries
+In-scope, out-of-scope and future phases
+Avoid scope ambiguity
+4
+Stakeholder Register
+Business owners, SMEs, IT, security and decision-makers
+Resource planning
+5
+Governance Structure
+Steering committee, architecture board, design authority
+Estimate governance effort
+6
+Delivery Methodology
+Agile, waterfall or hybrid delivery expectations
+Establish delivery approach
+7
+Resource and Availability Assumptions
+Client SMEs, technical resources, business testers
+Identify dependencies
+8
+Procurement and Commercial Constraints
+Contract model, pricing structure, procurement requirements
+Develop commercial proposal
+9
+Risk, Assumption, Issue and Dependency Register
+Known project risks and dependencies
+Estimate contingency
+10
+Third-Party and Procurement Dependencies
+Licences, external vendors and approvals
+Identify schedule and cost dependencies
+11
+Change and Release Constraints
+Release windows, blackout periods and change approvals
+Estimate deployment
+12
+Training and Change Management Expectations
+User training, communications and adoption
+Estimate transition effort
+
+3. Consolidated deliverables ownership matrix
+This is the matrix I would use to coordinate document preparation before the discovery workshop.
+Deliverable
+BA
+Client SA
+Technical BA
+Test
+Project
+Business context
+R
+C
+C
+I
+A
+Business capability map
+R
+C
+C
+I
+A
+As-Is / To-Be processes
+R
+C
+C
+C
+I
+Functional requirements
+R
+C
+C
+C
+I
+Business rules
+R
+C
+C
+C
+I
+Solution context diagram
+C
+A/R
+C
+I
+I
+Current-state architecture
+I
+A/R
+R
+I
+I
+Target architecture principles
+I
+A/R
+C
+I
+I
+Integration inventory
+C
+A
+R
+C
+I
+Interface specifications
+I
+A
+R
+C
+I
+Data migration inventory
+C
+A
+R
+C
+I
+NFR catalogue
+C
+A/R
+R
+C
+I
+Security requirements
+I
+A/R
+C
+C
+I
+Test strategy
+C
+C
+C
+A/R
+I
+Test scope matrix
+C
+C
+C
+A/R
+I
+High-level project plan
+I
+C
+I
+C
+A/R
+RAID register
+C
+C
+C
+C
+A/R
+Scope and assumptions register
+R
+R
+R
+R
+A
+
+R = Responsible, A = Accountable, C = Consulted, I = Informed.
+The ownership matrix is a suggested starting point. Your project governance should confirm a single accountable owner for each artefact.
+4. What the vendor should produce from the discovery workshop
+The client team should not be the only party producing deliverables. The vendor must translate the discovery inputs into an estimation package.
+#
+Vendor deliverable
+Expected outcome
+1
+Discovery Findings Report
+Consolidated understanding of the existing environment and business needs
+2
+Scope Confirmation Document
+Functional and technical scope, exclusions and boundaries
+3
+Requirements Traceability Matrix
+Mapping of requirements to proposed solution capabilities
+4
+Solution Architecture Proposal
+Proposed COTS architecture and integration approach
+5
+Gap Analysis
+Standard product capability versus required customisation
+6
+Integration Complexity Assessment
+Interface-by-interface effort and complexity
+7
+Data Migration Strategy
+Approach, volumes, cleansing, transformation and validation
+8
+Security and NFR Assessment
+Compliance gaps and required implementation activities
+9
+Implementation Work Breakdown Structure (WBS)
+Work packages, activities and dependencies
+10
+Resource and Effort Estimate
+Roles, person-days/person-months and effort by phase
+11
+Implementation Timeline
+Phases, milestones, critical path and dependencies
+12
+Testing and Quality Plan
+Testing activities, responsibilities and effort
+13
+Deployment and Cutover Strategy
+Migration, release and go-live approach
+14
+Risk and Assumption Register
+Risks, assumptions, exclusions and contingencies
+15
+Commercial Proposal
+One-time implementation, recurring and optional costs
+16
+Estimation Confidence Assessment
+Estimate range, confidence level and unresolved unknowns
+
+The vendor should also provide an explicit list of information gaps that prevent them from producing a reliable estimate.
+5. Backtracking diagram – detailed cost estimation traceability
+This is the more useful diagram to use with the project leadership team. It shows how the cost estimate must be justified by deliverables from each workstream.
+#chatgpt-mermaid-_r_1rp_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(13, 13, 13);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-_r_1rp_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_1rp_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-_r_1rp_ .error-icon{fill:rgb(243, 243, 243);}#chatgpt-mermaid-_r_1rp_ .error-text{fill:rgb(13, 13, 13);stroke:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1rp_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-_r_1rp_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-_r_1rp_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-_r_1rp_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-_r_1rp_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-_r_1rp_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-_r_1rp_ .marker{fill:rgb(143, 143, 143);stroke:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1rp_ .marker.cross{stroke:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1rp_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-_r_1rp_ p{margin:0;}#chatgpt-mermaid-_r_1rp_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1rp_ .cluster-label text{fill:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1rp_ .cluster-label span{color:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1rp_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-_r_1rp_ .label text,#chatgpt-mermaid-_r_1rp_ span{fill:rgb(13, 13, 13);color:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1rp_ .node rect,#chatgpt-mermaid-_r_1rp_ .node circle,#chatgpt-mermaid-_r_1rp_ .node ellipse,#chatgpt-mermaid-_r_1rp_ .node polygon,#chatgpt-mermaid-_r_1rp_ .node path{fill:rgb(222, 234, 251);stroke:rgb(83, 154, 248);stroke-width:1px;}#chatgpt-mermaid-_r_1rp_ .rough-node .label text,#chatgpt-mermaid-_r_1rp_ .node .label text,#chatgpt-mermaid-_r_1rp_ .image-shape .label,#chatgpt-mermaid-_r_1rp_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-_r_1rp_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-_r_1rp_ .rough-node .label,#chatgpt-mermaid-_r_1rp_ .node .label,#chatgpt-mermaid-_r_1rp_ .image-shape .label,#chatgpt-mermaid-_r_1rp_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-_r_1rp_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-_r_1rp_ .root .anchor path{fill:rgb(143, 143, 143)!important;stroke-width:0;stroke:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1rp_ .arrowheadPath{fill:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1rp_ .edgePath .path{stroke:rgb(143, 143, 143);stroke-width:1px;}#chatgpt-mermaid-_r_1rp_ .flowchart-link{stroke:rgb(143, 143, 143);fill:none;}#chatgpt-mermaid-_r_1rp_ .edgeLabel{background-color:rgb(252, 252, 252);text-align:center;}#chatgpt-mermaid-_r_1rp_ .edgeLabel p{background-color:rgb(252, 252, 252);}#chatgpt-mermaid-_r_1rp_ .edgeLabel rect{opacity:0.5;background-color:rgb(252, 252, 252);fill:rgb(252, 252, 252);}#chatgpt-mermaid-_r_1rp_ .labelBkg{background-color:rgba(252, 252, 252, 0.5);}#chatgpt-mermaid-_r_1rp_ .cluster rect{fill:rgb(243, 243, 243);stroke:rgba(0, 0, 0, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_1rp_ .cluster text{fill:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1rp_ .cluster span{color:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1rp_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(243, 243, 243);border:1px solid rgba(0, 0, 0, 0.1);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-_r_1rp_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(13, 13, 13);}#chatgpt-mermaid-_r_1rp_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-_r_1rp_ .icon-shape,#chatgpt-mermaid-_r_1rp_ .image-shape{background-color:rgb(252, 252, 252);text-align:center;}#chatgpt-mermaid-_r_1rp_ .icon-shape p,#chatgpt-mermaid-_r_1rp_ .image-shape p{background-color:rgb(252, 252, 252);padding:2px;}#chatgpt-mermaid-_r_1rp_ .icon-shape .label rect,#chatgpt-mermaid-_r_1rp_ .image-shape .label rect{opacity:0.5;background-color:rgb(252, 252, 252);fill:rgb(252, 252, 252);}#chatgpt-mermaid-_r_1rp_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-_r_1rp_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-_r_1rp_ .node .neo-node{stroke:rgb(83, 154, 248);}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].node rect,#chatgpt-mermaid-_r_1rp_ [data-look="neo"].cluster rect,#chatgpt-mermaid-_r_1rp_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-_r_1rp_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-_r_1rp_-gradient);stroke-width:1px;}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].node .neo-line path{stroke:rgb(83, 154, 248);filter:none;}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-_r_1rp_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-_r_1rp_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1rp_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-_r_1rp_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-_r_1rp_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(0, 79, 153);}#chatgpt-mermaid-_r_1rp_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(0, 79, 153);}#chatgpt-mermaid-_r_1rp_ .node tspan[font-weight="normal"],#chatgpt-mermaid-_r_1rp_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-_r_1rp_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(245, 250, 255);stroke:rgb(206, 219, 229);stroke-width:1px;}#chatgpt-mermaid-_r_1rp_ .node rect,#chatgpt-mermaid-_r_1rp_ .node circle,#chatgpt-mermaid-_r_1rp_ .node ellipse,#chatgpt-mermaid-_r_1rp_ .node polygon,#chatgpt-mermaid-_r_1rp_ .node path{fill:rgb(229, 243, 255);stroke:rgba(0, 0, 0, 0.1);stroke-width:1px;}#chatgpt-mermaid-_r_1rp_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-_r_1rp_ .mermaid-decision .label-container{fill:rgb(245, 250, 255);stroke:rgb(206, 219, 229);stroke-dasharray:2,2;}#chatgpt-mermaid-_r_1rp_ .edgePaths .flowchart-link{stroke:rgb(143, 143, 143);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-_r_1rp_ .marker{fill:rgb(143, 143, 143);stroke:rgb(143, 143, 143);}#chatgpt-mermaid-_r_1rp_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}VENDOR COST ESTIMATELicensing and Product CostsImplementation EffortMigration CostsIntegration CostsTesting CostsSecurity and Compliance CostsProject and Delivery CostsDeployment and Support CostsUser volumes, modules,environmentsRequirements, processes,business rulesData inventory, volumes,mappingsIntegration catalogue,interface specificationsTest strategy, scenarios,coverageNFRs, security controls,accreditationDelivery plan, governance,resource assumptionsCutover, training, transition,hypercareBA TEAMTECHNICAL BATEST TEAMCLIENT SOLUTION ARCHITECTPROJECT TEAMCONSOLIDATED DISCOVERYINPUTSVENDOR ESTIMATION ANDVALIDATIONWork Breakdown StructureResource Loading and EffortTimeline and DependenciesFINAL COMMERCIALPROPOSAL
+6. Recommended discovery workshop structure
+I would run this as a structured workshop over 3–5 working days, depending on the complexity of the existing claims platform and the number of integrations.
+Day
+Workshop
+Participants
+Expected outputs
+Day 1
+Business and functional discovery
+BA, business SMEs, vendor BA
+Processes, requirements, functionality and scope
+Day 2
+Technical and architecture discovery
+Client SA, Technical BA, vendor architects
+Architecture, integrations, NFRs and dependencies
+Day 3
+Data and migration discovery
+Technical BA, data team, vendor data architects
+Data inventory, migration scope and complexity
+Day 4
+Testing and operational discovery
+QA, operations, security, vendor
+Testing, environments, security and deployment
+Day 5
+Estimation and validation
+All workstream leads, vendor PM and commercial team
+WBS, effort, timeline, assumptions and cost
+
+7. Final estimation readiness checklist
+Before handing over the discovery pack, I would make sure the following are available.
+Discovery readiness
+0%
+0 of 26 items confirmed
+Business
+Business objectives and scope boundaries
+As-Is and To-Be process diagrams
+Functional requirements and business rules
+Business volumes and user personas
+Architecture and technology
+Current-state system landscape
+Target architecture principles and constraints
+Integration inventory and interface details
+NFRs and security requirements
+Environment and infrastructure requirements
+Data
+Data entity inventory and source systems
+Data volumes and historical data requirements
+Source-to-target mapping availability
+Data quality and retention requirements
+Testing
+Test strategy and scope
+SIT and UAT responsibilities
+Performance and security test requirements
+Test environments and data requirements
+Project and commercial
+Project milestones and delivery constraints
+Stakeholder and resource availability
+Governance and decision-making process
+Risks, assumptions and dependencies
+Vendor estimation
+WBS and work package breakdown
+Effort by role and activity
+Resource loading and implementation timeline
+One-time and recurring cost breakdown
+Exclusions, assumptions and estimation confidence
+Reset checklist
+8. My recommendation as the client Solution Architect
+There are five things I would insist on before accepting the vendor's estimate.
+Traceability: Every major cost item must be traceable to a requirement, interface, migration object, technical activity or delivery assumption.
+Complexity classification: Each integration and functional capability should have a Low / Medium / High complexity rating with justification.
+Explicit assumptions: The vendor must identify what they have assumed because information was unavailable.
+Client versus vendor responsibilities: Clearly identify which activities require client resources and which are included in vendor pricing.
+Estimate confidence: Separate confirmed estimates from provisional estimates and identify the additional discovery needed to firm them up.
+One particularly important point for your COTS replacement project: distinguish between standard product configuration, product extension/customisation, integration development and legacy functionality retirement. These are very different effort categories and should not be hidden under a single implementation cost.
+Suggested final deliverable structure
+I would establish a single shared discovery repository with this folder structure:
+Vendor-Discovery/
+│
+├── 01-Business-Discovery/
+│   ├── Business-Context
+│   ├── Process-Maps
+│   ├── Requirements
+│   └── Business-Rules
+│
+├── 02-Architecture/
+│   ├── Current-State
+│   ├── Target-State
+│   ├── Solution-Context
+│   ├── NFRs
+│   └── Security
+│
+├── 03-Technical-Discovery/
+│   ├── System-Inventory
+│   ├── Integration-Catalogue
+│   ├── Interface-Specifications
+│   ├── Data-Migration
+│   └── Technical-Dependencies
+│
+├── 04-Testing/
+│   ├── Test-Strategy
+│   ├── Test-Scope
+│   └── Test-Environment
+│
+├── 05-Project-Management/
+│   ├── Project-Plan
+│   ├── RAID
+│   └── Governance
+│
+└── 06-Vendor-Estimation/
+    ├── Discovery-Findings
+    ├── Scope-and-Gap-Analysis
+    ├── WBS
+    ├── Resource-and-Effort-Estimate
+    ├── Timeline
+    └── Commercial-Proposal
+The key outcome: The vendor should be able to demonstrate a clear chain:
+Client deliverables → Validated scope → Solution design → Work breakdown → Effort → Timeline → Cost
+I can also turn this into a formal Vendor Discovery Deliverables & Estimation Responsibility Matrix (Excel) with document IDs, owners, contributors, expected contents, due dates, vendor dependencies and estimation traceability, ready to use for project governance.
 
-For replacing an existing on-premises application with a vendor-hosted SaaS solution, I would recommend producing **10 core architecture diagrams** for the vendor discovery and estimation workshop.
-
-Your diagrams should help the vendor understand three things:
-
-1. What exists today.
-2. What the future SaaS solution needs to look like.
-3. What needs to change, integrate, migrate or be retired.
-
-You do not need to produce detailed low-level designs at this stage. These should be **discovery-level architecture diagrams**, sufficient for the vendor to understand complexity and estimate effort.
-
-# **1. Diagram catalogue – what you should produce**
-
-# **01**
-
-**Current-State System Context Diagram**
-
-Existing on-prem application, users, external systems and interfaces.
-
-Must have
-
-# **02**
-
-**Current-State Application Landscape**
-
-Applications, databases, middleware, infrastructure and dependencies.
-
-Must have
-
-# **03**
-
-**Target SaaS Solution Context Diagram**
-
-Future SaaS platform and its interaction with enterprise systems.
-
-Must have
-
-# **04**
-
-**Target SaaS Integration Architecture**
-
-API gateway, middleware, APIs, events, files and connectivity.
-
-Must have
-
-# **05**
-
-**Data Migration Architecture**
-
-Legacy extraction, transformation, loading and reconciliation.
-
-Must have
-
-# **06**
-
-**Identity and Security Architecture**
-
-SSO, MFA, identity federation, provisioning and trust boundaries.
-
-Must have
-
-# **07**
-
-**Environment and Deployment Architecture**
-
-SaaS environments, client environments and release connectivity.
-
-Must have
-
-# **08**
-
-**Non-Functional Requirements Architecture**
-
-Availability, resilience, DR, performance, monitoring and audit.
-
-Must have
-
-# **09**
-
-**SaaS Operational Responsibility Diagram**
-
-Client versus SaaS provider responsibilities and service boundaries.
-
-Recommended
-
-# **10**
-
-**Legacy Decommissioning and Transition Diagram**
-
-Migration, coexistence, cutover and retirement of on-prem components.
-
-Recommended
-
-I'll use a hypothetical claims-management SaaS replacement to demonstrate the diagrams. Replace the example system names with your actual systems.
-
-# **2. Example diagrams**
-
-## **Diagram 1 – Current-State System Context**
-
-Priority 1
-
-**Purpose:** Show the existing on-prem solution, who uses it and which systems communicate with it.
-
-[Doing proper diagrams is easy. Why most architecture diagrams fall… | by Eugene Pavliy | Medium](https://images.openai.com/static-rsc-4/kQHpyxiCSADGBB7s17BXcyaeM0Nexx1mJJInThaYCHn7oLlW_lKsOjRBnzPF-BgXBD66zt-Rho2fWiRB2mHttclmWokTojNFBXv5Yc_uOlPTGLVRQL6C_PtmlVXq8jPTzA7D1Qw4GR_Ez1icJy1ln9bD0mY4N-yQzaaZhfSKuLs?purpose=inline)
-
-[medium.com](https://medium.com/%40epavliy/doing-proper-c4-diagrams-is-easy-8cca06fdaea6?utm_source=chatgpt.com)
-
-\#chatgpt-mermaid-\_r_dm\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_dm\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_dm\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_dm\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_dm\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dm\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_dm\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_dm\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_dm\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_dm\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_dm\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_dm\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dm\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dm\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_dm\_ p{margin:0;}#chatgpt-mermaid-\_r_dm\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dm\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dm\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dm\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_dm\_ .label text,#chatgpt-mermaid-\_r_dm\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dm\_ .node rect,#chatgpt-mermaid-\_r_dm\_ .node circle,#chatgpt-mermaid-\_r_dm\_ .node ellipse,#chatgpt-mermaid-\_r_dm\_ .node polygon,#chatgpt-mermaid-\_r_dm\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_dm\_ .rough-node .label text,#chatgpt-mermaid-\_r_dm\_ .node .label text,#chatgpt-mermaid-\_r_dm\_ .image-shape .label,#chatgpt-mermaid-\_r_dm\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_dm\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_dm\_ .rough-node .label,#chatgpt-mermaid-\_r_dm\_ .node .label,#chatgpt-mermaid-\_r_dm\_ .image-shape .label,#chatgpt-mermaid-\_r_dm\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_dm\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_dm\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dm\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dm\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_dm\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_dm\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_dm\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_dm\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_dm\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_dm\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_dm\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dm\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dm\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_dm\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dm\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_dm\_ .icon-shape,#chatgpt-mermaid-\_r_dm\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_dm\_ .icon-shape p,#chatgpt-mermaid-\_r_dm\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_dm\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_dm\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_dm\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_dm\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_dm\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_dm\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_dm\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_dm\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_dm\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dm\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_dm\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dm\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_dm\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_dm\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_dm\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_dm\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_dm\_ .node rect,#chatgpt-mermaid-\_r_dm\_ .node circle,#chatgpt-mermaid-\_r_dm\_ .node ellipse,#chatgpt-mermaid-\_r_dm\_ .node polygon,#chatgpt-mermaid-\_r_dm\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_dm\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_dm\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_dm\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_dm\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dm\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}External SystemsClient On-Premises Data CentreCRMFinance / ERPIdentity ProviderPayment GatewayReporting PlatformLegacy Claims ApplicationClaims DatabaseDocument RepositoryClaims OfficersClaims ManagersCustomers / Partners
-
-**What to capture:**
-
-- Users and external actors.
-- Existing application boundaries.
-- Database and document repository.
-- Upstream and downstream systems.
-- Main integration directions.
-- System ownership.
-
-**Estimation value:** Helps identify the systems and interfaces that may be impacted by replacement.
-
-## **Diagram 2 – Current-State Application Landscape**
-
-Priority 2
-
-**Purpose:** Give the vendor an understanding of the technology complexity behind the existing application.
-
-\#chatgpt-mermaid-\_r_dt\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_dt\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_dt\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_dt\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_dt\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dt\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_dt\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_dt\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_dt\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_dt\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_dt\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_dt\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dt\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dt\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_dt\_ p{margin:0;}#chatgpt-mermaid-\_r_dt\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dt\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dt\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dt\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_dt\_ .label text,#chatgpt-mermaid-\_r_dt\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dt\_ .node rect,#chatgpt-mermaid-\_r_dt\_ .node circle,#chatgpt-mermaid-\_r_dt\_ .node ellipse,#chatgpt-mermaid-\_r_dt\_ .node polygon,#chatgpt-mermaid-\_r_dt\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_dt\_ .rough-node .label text,#chatgpt-mermaid-\_r_dt\_ .node .label text,#chatgpt-mermaid-\_r_dt\_ .image-shape .label,#chatgpt-mermaid-\_r_dt\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_dt\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_dt\_ .rough-node .label,#chatgpt-mermaid-\_r_dt\_ .node .label,#chatgpt-mermaid-\_r_dt\_ .image-shape .label,#chatgpt-mermaid-\_r_dt\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_dt\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_dt\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dt\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dt\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_dt\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_dt\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_dt\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_dt\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_dt\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_dt\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_dt\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dt\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dt\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_dt\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_dt\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_dt\_ .icon-shape,#chatgpt-mermaid-\_r_dt\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_dt\_ .icon-shape p,#chatgpt-mermaid-\_r_dt\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_dt\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_dt\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_dt\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_dt\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_dt\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_dt\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_dt\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_dt\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_dt\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dt\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_dt\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_dt\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_dt\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_dt\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_dt\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_dt\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_dt\_ .node rect,#chatgpt-mermaid-\_r_dt\_ .node circle,#chatgpt-mermaid-\_r_dt\_ .node ellipse,#chatgpt-mermaid-\_r_dt\_ .node polygon,#chatgpt-mermaid-\_r_dt\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_dt\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_dt\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_dt\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_dt\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_dt\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Infrastructure LayerData LayerIntegration LayerApplication LayerPresentation LayerVirtual MachinesOperating SystemsMonitoringBackup / DRRelational DatabaseDocument StoreData WarehouseEnterprise Service BusAPI GatewayMessage QueueLegacy Claims EngineWorkflow EngineBusiness Rules EngineBatch ProcessingWeb ApplicationCustomer Portal
-
-**What to capture:**
-
-- Application components and modules.
-- Middleware and integration technology.
-- Database and document storage.
-- On-prem infrastructure dependencies.
-- Batch and scheduled processing.
-- Existing operational dependencies.
-
-**Estimation value:** Helps identify functionality, middleware and infrastructure that need replacement, integration or retirement.
-
-## **Diagram 3 – Target SaaS Solution Context**
-
-Priority 3
-
-**Purpose:** Show how the future SaaS product fits into the client's enterprise ecosystem.
-
-\#chatgpt-mermaid-\_r_e4\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_e4\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_e4\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_e4\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_e4\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_e4\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_e4\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_e4\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_e4\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_e4\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_e4\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_e4\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_e4\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_e4\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_e4\_ p{margin:0;}#chatgpt-mermaid-\_r_e4\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_e4\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_e4\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_e4\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_e4\_ .label text,#chatgpt-mermaid-\_r_e4\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_e4\_ .node rect,#chatgpt-mermaid-\_r_e4\_ .node circle,#chatgpt-mermaid-\_r_e4\_ .node ellipse,#chatgpt-mermaid-\_r_e4\_ .node polygon,#chatgpt-mermaid-\_r_e4\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_e4\_ .rough-node .label text,#chatgpt-mermaid-\_r_e4\_ .node .label text,#chatgpt-mermaid-\_r_e4\_ .image-shape .label,#chatgpt-mermaid-\_r_e4\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_e4\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_e4\_ .rough-node .label,#chatgpt-mermaid-\_r_e4\_ .node .label,#chatgpt-mermaid-\_r_e4\_ .image-shape .label,#chatgpt-mermaid-\_r_e4\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_e4\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_e4\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_e4\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_e4\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_e4\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_e4\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_e4\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_e4\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_e4\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_e4\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_e4\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_e4\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_e4\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_e4\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_e4\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_e4\_ .icon-shape,#chatgpt-mermaid-\_r_e4\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_e4\_ .icon-shape p,#chatgpt-mermaid-\_r_e4\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_e4\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_e4\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_e4\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_e4\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_e4\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_e4\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_e4\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_e4\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_e4\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_e4\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_e4\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_e4\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_e4\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_e4\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_e4\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_e4\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_e4\_ .node rect,#chatgpt-mermaid-\_r_e4\_ .node circle,#chatgpt-mermaid-\_r_e4\_ .node ellipse,#chatgpt-mermaid-\_r_e4\_ .node polygon,#chatgpt-mermaid-\_r_e4\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_e4\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_e4\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_e4\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_e4\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_e4\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Vendor-Hosted SaaS PlatformClient EnterpriseSaaS User InterfaceClaims ManagementWorkflow and RulesDocument ManagementSaaS ReportingVendor Managed Data StoreEntra ID / IdentityEnterprise API GatewayIntegration PlatformCRMFinance SystemEnterprise ReportingInternal UsersCustomers / Partners
-
-**What to capture:**
-
-- SaaS platform boundary and vendor ownership.
-- Client-owned integration components.
-- Enterprise identity provider.
-- Upstream and downstream systems.
-- Reporting and data consumers.
-- External user access, if applicable.
-
-**Estimation value:** Establishes the target scope and identifies which existing components remain client-owned.
-
-## **Diagram 4 – Target SaaS Integration Architecture**
-
-Priority 4
-
-**Purpose:** This is one of the most important diagrams for cost estimation. Show how the SaaS solution communicates with enterprise and external systems.
-
-\#chatgpt-mermaid-\_r_eb\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_eb\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_eb\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_eb\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_eb\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_eb\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_eb\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_eb\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_eb\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_eb\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_eb\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_eb\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_eb\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_eb\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_eb\_ p{margin:0;}#chatgpt-mermaid-\_r_eb\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_eb\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_eb\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_eb\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_eb\_ .label text,#chatgpt-mermaid-\_r_eb\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_eb\_ .node rect,#chatgpt-mermaid-\_r_eb\_ .node circle,#chatgpt-mermaid-\_r_eb\_ .node ellipse,#chatgpt-mermaid-\_r_eb\_ .node polygon,#chatgpt-mermaid-\_r_eb\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_eb\_ .rough-node .label text,#chatgpt-mermaid-\_r_eb\_ .node .label text,#chatgpt-mermaid-\_r_eb\_ .image-shape .label,#chatgpt-mermaid-\_r_eb\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_eb\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_eb\_ .rough-node .label,#chatgpt-mermaid-\_r_eb\_ .node .label,#chatgpt-mermaid-\_r_eb\_ .image-shape .label,#chatgpt-mermaid-\_r_eb\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_eb\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_eb\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_eb\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_eb\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_eb\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_eb\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_eb\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_eb\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_eb\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_eb\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_eb\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_eb\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_eb\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_eb\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_eb\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_eb\_ .icon-shape,#chatgpt-mermaid-\_r_eb\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_eb\_ .icon-shape p,#chatgpt-mermaid-\_r_eb\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_eb\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_eb\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_eb\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_eb\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_eb\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_eb\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_eb\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_eb\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_eb\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_eb\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_eb\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_eb\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_eb\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_eb\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_eb\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_eb\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_eb\_ .node rect,#chatgpt-mermaid-\_r_eb\_ .node circle,#chatgpt-mermaid-\_r_eb\_ .node ellipse,#chatgpt-mermaid-\_r_eb\_ .node polygon,#chatgpt-mermaid-\_r_eb\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_eb\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_eb\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_eb\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_eb\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_eb\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Enterprise SystemsClient Integration BoundarySaaS PlatformCRMFinanceDocument ServicesData PlatformExternal Government ServicesAPI ManagementIntegration Services / iPaaSMessage BrokerSecure File TransferClaims SaaSSaaS REST APIsWebhooks / Events
-
-**What to capture:**
-
-- API-based integration.
-- Event and webhook integration.
-- Batch and file-based integration.
-- Middleware and API gateway.
-- Authentication and certificates.
-- Error handling and retry.
-- Data direction and frequency.
-
-**Estimation value:** Gives the vendor a basis for estimating each integration separately.
-
-## **Diagram 5 – Data Migration Architecture**
-
-Priority 5
-
-**Purpose:** Show how data moves from the on-prem application into SaaS.
-
-\#chatgpt-mermaid-\_r_ei\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_ei\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_ei\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_ei\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_ei\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ei\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_ei\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_ei\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_ei\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_ei\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_ei\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_ei\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ei\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ei\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_ei\_ p{margin:0;}#chatgpt-mermaid-\_r_ei\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ei\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ei\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ei\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_ei\_ .label text,#chatgpt-mermaid-\_r_ei\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ei\_ .node rect,#chatgpt-mermaid-\_r_ei\_ .node circle,#chatgpt-mermaid-\_r_ei\_ .node ellipse,#chatgpt-mermaid-\_r_ei\_ .node polygon,#chatgpt-mermaid-\_r_ei\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_ei\_ .rough-node .label text,#chatgpt-mermaid-\_r_ei\_ .node .label text,#chatgpt-mermaid-\_r_ei\_ .image-shape .label,#chatgpt-mermaid-\_r_ei\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_ei\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_ei\_ .rough-node .label,#chatgpt-mermaid-\_r_ei\_ .node .label,#chatgpt-mermaid-\_r_ei\_ .image-shape .label,#chatgpt-mermaid-\_r_ei\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_ei\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_ei\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ei\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ei\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_ei\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_ei\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_ei\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_ei\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_ei\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_ei\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_ei\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ei\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ei\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_ei\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ei\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_ei\_ .icon-shape,#chatgpt-mermaid-\_r_ei\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_ei\_ .icon-shape p,#chatgpt-mermaid-\_r_ei\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_ei\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_ei\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_ei\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_ei\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_ei\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_ei\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_ei\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_ei\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_ei\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ei\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_ei\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ei\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_ei\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_ei\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_ei\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_ei\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_ei\_ .node rect,#chatgpt-mermaid-\_r_ei\_ .node circle,#chatgpt-mermaid-\_r_ei\_ .node ellipse,#chatgpt-mermaid-\_r_ei\_ .node polygon,#chatgpt-mermaid-\_r_ei\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_ei\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_ei\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_ei\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_ei\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ei\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Vendor SaaSMigration ServicesOn-Prem LegacyBulk Import / APIsSaaS Data StoreHistorical ArchiveData ExtractionStaging AreaData CleansingTransformation and MappingValidation and ReconciliationClaims DatabaseDocument RepositoryHistorical Records
-
-**What to capture:**
-
-- Source databases and document repositories.
-- Data extraction method.
-- Data cleansing and transformation.
-- Field mapping.
-- Migration tooling.
-- SaaS bulk load or API capability.
-- Reconciliation and validation.
-- Historical data and archival approach.
-
-**Estimation value:** Helps estimate migration objects, volumes, transformation complexity and migration cycles.
-
-## **Diagram 6 – Identity and Security Architecture**
-
-Priority 6
-
-**Purpose:** Show how users, administrators and system integrations authenticate and access the SaaS platform.
-
-\#chatgpt-mermaid-\_r_ep\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_ep\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_ep\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_ep\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_ep\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ep\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_ep\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_ep\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_ep\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_ep\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_ep\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_ep\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ep\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ep\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_ep\_ p{margin:0;}#chatgpt-mermaid-\_r_ep\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ep\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ep\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ep\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_ep\_ .label text,#chatgpt-mermaid-\_r_ep\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ep\_ .node rect,#chatgpt-mermaid-\_r_ep\_ .node circle,#chatgpt-mermaid-\_r_ep\_ .node ellipse,#chatgpt-mermaid-\_r_ep\_ .node polygon,#chatgpt-mermaid-\_r_ep\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_ep\_ .rough-node .label text,#chatgpt-mermaid-\_r_ep\_ .node .label text,#chatgpt-mermaid-\_r_ep\_ .image-shape .label,#chatgpt-mermaid-\_r_ep\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_ep\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_ep\_ .rough-node .label,#chatgpt-mermaid-\_r_ep\_ .node .label,#chatgpt-mermaid-\_r_ep\_ .image-shape .label,#chatgpt-mermaid-\_r_ep\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_ep\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_ep\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ep\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ep\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_ep\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_ep\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_ep\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_ep\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_ep\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_ep\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_ep\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ep\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ep\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_ep\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_ep\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_ep\_ .icon-shape,#chatgpt-mermaid-\_r_ep\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_ep\_ .icon-shape p,#chatgpt-mermaid-\_r_ep\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_ep\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_ep\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_ep\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_ep\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_ep\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_ep\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_ep\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_ep\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_ep\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ep\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_ep\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_ep\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_ep\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_ep\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_ep\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_ep\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_ep\_ .node rect,#chatgpt-mermaid-\_r_ep\_ .node circle,#chatgpt-mermaid-\_r_ep\_ .node ellipse,#chatgpt-mermaid-\_r_ep\_ .node polygon,#chatgpt-mermaid-\_r_ep\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_ep\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_ep\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_ep\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_ep\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_ep\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}SaaS Provider Security BoundaryClient Security BoundarySAML / OIDC FederationRole-Based Access ControlAudit LoggingEncryption and KeyManagementMicrosoft Entra IDMFA / Conditional AccessPrivileged Access ManagementBusiness UsersSaaS AdministratorsIntegration Service Accounts
-
-**What to capture:**
-
-- Single sign-on (SAML/OIDC).
-- MFA and conditional access.
-- Role-based access control.
-- Service accounts and API authentication.
-- Privileged access.
-- Audit logging.
-- Encryption and key management.
-
-**Estimation value:** Helps identify identity integration, security configuration and compliance activities.
-
-## **Diagram 7 – Environment and Deployment Architecture**
-
-Priority 7
-
-**Purpose:** Show how the SaaS vendor provides environments and how client integration components are deployed and promoted.
-
-\#chatgpt-mermaid-\_r_f0\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_f0\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_f0\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_f0\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_f0\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f0\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_f0\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_f0\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_f0\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_f0\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_f0\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_f0\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f0\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f0\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_f0\_ p{margin:0;}#chatgpt-mermaid-\_r_f0\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f0\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f0\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f0\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_f0\_ .label text,#chatgpt-mermaid-\_r_f0\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f0\_ .node rect,#chatgpt-mermaid-\_r_f0\_ .node circle,#chatgpt-mermaid-\_r_f0\_ .node ellipse,#chatgpt-mermaid-\_r_f0\_ .node polygon,#chatgpt-mermaid-\_r_f0\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_f0\_ .rough-node .label text,#chatgpt-mermaid-\_r_f0\_ .node .label text,#chatgpt-mermaid-\_r_f0\_ .image-shape .label,#chatgpt-mermaid-\_r_f0\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_f0\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_f0\_ .rough-node .label,#chatgpt-mermaid-\_r_f0\_ .node .label,#chatgpt-mermaid-\_r_f0\_ .image-shape .label,#chatgpt-mermaid-\_r_f0\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_f0\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_f0\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f0\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f0\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_f0\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_f0\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_f0\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_f0\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_f0\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_f0\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_f0\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f0\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f0\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_f0\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f0\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_f0\_ .icon-shape,#chatgpt-mermaid-\_r_f0\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_f0\_ .icon-shape p,#chatgpt-mermaid-\_r_f0\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_f0\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_f0\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_f0\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_f0\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_f0\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_f0\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_f0\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_f0\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_f0\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f0\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_f0\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f0\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_f0\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_f0\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_f0\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_f0\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_f0\_ .node rect,#chatgpt-mermaid-\_r_f0\_ .node circle,#chatgpt-mermaid-\_r_f0\_ .node ellipse,#chatgpt-mermaid-\_r_f0\_ .node polygon,#chatgpt-mermaid-\_r_f0\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_f0\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_f0\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_f0\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_f0\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f0\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Client ManagedSaaS Vendor ManagedDEV IntegrationSIT IntegrationUAT IntegrationPROD IntegrationRelease / Deployment PipelineDevelopment / ConfigurationSIT EnvironmentUAT EnvironmentProduction Environment
-
-**What to capture:**
-
-- SaaS environment availability.
-- Number of environments included in subscription.
-- Configuration promotion approach.
-- Integration environment mapping.
-- Test data refresh approach.
-- Release management.
-- Production deployment approvals.
-
-**Estimation value:** Identifies additional environment licensing, setup, deployment and release management effort.
-
-## **Diagram 8 – Non-Functional Requirements Architecture**
-
-Priority 8
-
-**Purpose:** Translate NFR requirements into architecture capabilities and vendor obligations.
-
-\#chatgpt-mermaid-\_r_f7\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_f7\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_f7\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_f7\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_f7\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f7\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_f7\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_f7\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_f7\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_f7\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_f7\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_f7\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f7\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f7\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_f7\_ p{margin:0;}#chatgpt-mermaid-\_r_f7\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f7\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f7\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f7\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_f7\_ .label text,#chatgpt-mermaid-\_r_f7\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f7\_ .node rect,#chatgpt-mermaid-\_r_f7\_ .node circle,#chatgpt-mermaid-\_r_f7\_ .node ellipse,#chatgpt-mermaid-\_r_f7\_ .node polygon,#chatgpt-mermaid-\_r_f7\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_f7\_ .rough-node .label text,#chatgpt-mermaid-\_r_f7\_ .node .label text,#chatgpt-mermaid-\_r_f7\_ .image-shape .label,#chatgpt-mermaid-\_r_f7\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_f7\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_f7\_ .rough-node .label,#chatgpt-mermaid-\_r_f7\_ .node .label,#chatgpt-mermaid-\_r_f7\_ .image-shape .label,#chatgpt-mermaid-\_r_f7\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_f7\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_f7\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f7\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f7\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_f7\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_f7\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_f7\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_f7\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_f7\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_f7\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_f7\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f7\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f7\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_f7\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_f7\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_f7\_ .icon-shape,#chatgpt-mermaid-\_r_f7\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_f7\_ .icon-shape p,#chatgpt-mermaid-\_r_f7\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_f7\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_f7\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_f7\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_f7\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_f7\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_f7\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_f7\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_f7\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_f7\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f7\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_f7\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_f7\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_f7\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_f7\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_f7\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_f7\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_f7\_ .node rect,#chatgpt-mermaid-\_r_f7\_ .node circle,#chatgpt-mermaid-\_r_f7\_ .node ellipse,#chatgpt-mermaid-\_r_f7\_ .node polygon,#chatgpt-mermaid-\_r_f7\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_f7\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_f7\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_f7\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_f7\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_f7\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}SaaS ApplicationAvailabilityPerformanceSecurityDisaster RecoveryMonitoringAudit and LoggingAvailability SLAResponse Time / ThroughputEncryption / VulnerabilityManagementRTO / RPO / BackupHealth Monitoring / AlertsAudit Trails / Log Retention
-
-**What to capture:**
-
-| NFR            | Example requirement                            |
-| -------------- | ---------------------------------------------- |
-| Availability   | 99.9% or agreed SLA                            |
-| Performance    | Agreed response time under defined load        |
-| Scalability    | Peak concurrent users and transaction volumes  |
-| DR             | Defined RTO and RPO                            |
-| Security       | Encryption at rest and in transit              |
-| Audit          | Defined retention and accessibility            |
-| Monitoring     | Incident alerts and service health             |
-| Data residency | Approved data storage and processing locations |
-
-These are examples only, not recommended contractual targets. Agree actual values with business and security stakeholders.
-
-**Estimation value:** Helps identify SaaS subscription tiers, additional services and compliance costs.
-
-## **Diagram 9 – SaaS Shared Responsibility Architecture**
-
-Recommended
-
-**Purpose:** Clarify what the SaaS vendor manages and what the client must manage.
-
-\#chatgpt-mermaid-\_r_fe\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_fe\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_fe\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_fe\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_fe\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fe\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_fe\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_fe\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_fe\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_fe\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_fe\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_fe\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fe\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fe\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_fe\_ p{margin:0;}#chatgpt-mermaid-\_r_fe\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fe\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fe\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fe\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_fe\_ .label text,#chatgpt-mermaid-\_r_fe\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fe\_ .node rect,#chatgpt-mermaid-\_r_fe\_ .node circle,#chatgpt-mermaid-\_r_fe\_ .node ellipse,#chatgpt-mermaid-\_r_fe\_ .node polygon,#chatgpt-mermaid-\_r_fe\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_fe\_ .rough-node .label text,#chatgpt-mermaid-\_r_fe\_ .node .label text,#chatgpt-mermaid-\_r_fe\_ .image-shape .label,#chatgpt-mermaid-\_r_fe\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_fe\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_fe\_ .rough-node .label,#chatgpt-mermaid-\_r_fe\_ .node .label,#chatgpt-mermaid-\_r_fe\_ .image-shape .label,#chatgpt-mermaid-\_r_fe\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_fe\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_fe\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fe\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fe\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_fe\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_fe\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_fe\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_fe\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_fe\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_fe\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_fe\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fe\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fe\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_fe\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fe\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_fe\_ .icon-shape,#chatgpt-mermaid-\_r_fe\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_fe\_ .icon-shape p,#chatgpt-mermaid-\_r_fe\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_fe\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_fe\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_fe\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_fe\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_fe\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_fe\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_fe\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_fe\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_fe\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fe\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_fe\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fe\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_fe\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_fe\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_fe\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_fe\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_fe\_ .node rect,#chatgpt-mermaid-\_r_fe\_ .node circle,#chatgpt-mermaid-\_r_fe\_ .node ellipse,#chatgpt-mermaid-\_r_fe\_ .node polygon,#chatgpt-mermaid-\_r_fe\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_fe\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_fe\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_fe\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_fe\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fe\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Client ResponsibilitiesShared ResponsibilitiesSaaS Provider ResponsibilitiesBusiness ConfigurationApprovalUser Access GovernanceBusiness Data OwnershipUAT and AcceptanceBusiness Process ManagementEnterprise IntegrationOwnershipIdentity and AccessIntegration ManagementIncident ManagementSecurity MonitoringRelease CoordinationCloud InfrastructurePlatform AvailabilitySaaS Application MaintenanceProduct Patching andUpgradesPlatform Backup and DRPlatform Security
-
-**Estimation value:** Prevents duplication of operational activities and makes ongoing support costs transparent.
-
-## **Diagram 10 – Legacy Decommissioning and Transition Architecture**
-
-Recommended
-
-**Purpose:** Explain the transition from the legacy application to SaaS, including coexistence and eventual retirement.
-
-\#chatgpt-mermaid-\_r_fl\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(237, 237, 237);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_fl\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_fl\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_fl\_ .error-icon{fill:rgb(48, 48, 48);}#chatgpt-mermaid-\_r_fl\_ .error-text{fill:rgb(237, 237, 237);stroke:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fl\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_fl\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_fl\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_fl\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_fl\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_fl\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_fl\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fl\_ .marker.cross{stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fl\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_fl\_ p{margin:0;}#chatgpt-mermaid-\_r_fl\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fl\_ .cluster-label text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fl\_ .cluster-label span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fl\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_fl\_ .label text,#chatgpt-mermaid-\_r_fl\_ span{fill:rgb(237, 237, 237);color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fl\_ .node rect,#chatgpt-mermaid-\_r_fl\_ .node circle,#chatgpt-mermaid-\_r_fl\_ .node ellipse,#chatgpt-mermaid-\_r_fl\_ .node polygon,#chatgpt-mermaid-\_r_fl\_ .node path{fill:rgb(9, 23, 44);stroke:rgb(31, 78, 148);stroke-width:1px;}#chatgpt-mermaid-\_r_fl\_ .rough-node .label text,#chatgpt-mermaid-\_r_fl\_ .node .label text,#chatgpt-mermaid-\_r_fl\_ .image-shape .label,#chatgpt-mermaid-\_r_fl\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_fl\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_fl\_ .rough-node .label,#chatgpt-mermaid-\_r_fl\_ .node .label,#chatgpt-mermaid-\_r_fl\_ .image-shape .label,#chatgpt-mermaid-\_r_fl\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_fl\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_fl\_ .root .anchor path{fill:rgb(175, 175, 175)!important;stroke-width:0;stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fl\_ .arrowheadPath{fill:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fl\_ .edgePath .path{stroke:rgb(175, 175, 175);stroke-width:1px;}#chatgpt-mermaid-\_r_fl\_ .flowchart-link{stroke:rgb(175, 175, 175);fill:none;}#chatgpt-mermaid-\_r_fl\_ .edgeLabel{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_fl\_ .edgeLabel p{background-color:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_fl\_ .edgeLabel rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_fl\_ .labelBkg{background-color:rgba(0, 0, 0, 0.5);}#chatgpt-mermaid-\_r_fl\_ .cluster rect{fill:rgb(48, 48, 48);stroke:rgba(255, 255, 255, 0.15);stroke-width:1px;}#chatgpt-mermaid-\_r_fl\_ .cluster text{fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fl\_ .cluster span{color:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fl\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(48, 48, 48);border:1px solid rgba(255, 255, 255, 0.15);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_fl\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(237, 237, 237);}#chatgpt-mermaid-\_r_fl\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_fl\_ .icon-shape,#chatgpt-mermaid-\_r_fl\_ .image-shape{background-color:rgb(0, 0, 0);text-align:center;}#chatgpt-mermaid-\_r_fl\_ .icon-shape p,#chatgpt-mermaid-\_r_fl\_ .image-shape p{background-color:rgb(0, 0, 0);padding:2px;}#chatgpt-mermaid-\_r_fl\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_fl\_ .image-shape .label rect{opacity:0.5;background-color:rgb(0, 0, 0);fill:rgb(0, 0, 0);}#chatgpt-mermaid-\_r_fl\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_fl\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_fl\_ .node .neo-node{stroke:rgb(31, 78, 148);}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_fl\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_fl\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].node .neo-line path{stroke:rgb(31, 78, 148);filter:none;}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_fl\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_fl\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fl\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_fl\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_fl\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_fl\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(153, 206, 255);}#chatgpt-mermaid-\_r_fl\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_fl\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_fl\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-width:1px;}#chatgpt-mermaid-\_r_fl\_ .node rect,#chatgpt-mermaid-\_r_fl\_ .node circle,#chatgpt-mermaid-\_r_fl\_ .node ellipse,#chatgpt-mermaid-\_r_fl\_ .node polygon,#chatgpt-mermaid-\_r_fl\_ .node path{fill:rgb(0, 40, 77);stroke:rgba(255, 255, 255, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_fl\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_fl\_ .mermaid-decision .label-container{fill:rgb(0, 14, 26);stroke:rgb(26, 62, 95);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_fl\_ .edgePaths .flowchart-link{stroke:rgb(175, 175, 175);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_fl\_ .marker{fill:rgb(175, 175, 175);stroke:rgb(175, 175, 175);}#chatgpt-mermaid-\_r_fl\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Legacy On-Prem ApplicationHistorical Data ExtractionData MigrationSaaS PlatformValidation and ReconciliationBusiness CutoverLegacy Read-Only / ArchiveLegacy DecommissioningTemporary coexistence
-
-**What to capture:**
-
-- Data migration sequence.
-- Parallel running requirements.
-- Business cutover.
-- Historical access requirements.
-- Legacy read-only period.
-- Data retention and disposal.
-- Infrastructure shutdown and contract termination.
-
-**Estimation value:** Identifies migration, coexistence, archival and decommissioning costs.
-
-# **3. How I would package these diagrams for the vendor**
-
-I would create one architecture document called:
-
-**Client Solution Architecture – SaaS Replacement Discovery Pack**
-
-| Section | Diagram                                 | Priority    |
-| ------- | --------------------------------------- | ----------- |
-| 1       | Current-State System Context            | Mandatory   |
-| 2       | Current-State Application Landscape     | Mandatory   |
-| 3       | Target SaaS Solution Context            | Mandatory   |
-| 4       | Target SaaS Integration Architecture    | Mandatory   |
-| 5       | Data Migration Architecture             | Mandatory   |
-| 6       | Identity and Security Architecture      | Mandatory   |
-| 7       | Environment and Deployment Architecture | Mandatory   |
-| 8       | NFR Architecture                        | Mandatory   |
-| 9       | Shared Responsibility Architecture      | Recommended |
-| 10      | Legacy Decommissioning and Transition   | Recommended |
-
-# **4. What level of detail should you produce?**
-
-Do not spend time producing detailed technical designs before the vendor discovery. Use these levels:
-
-| Diagram                  | Recommended detail          |
-| ------------------------ | --------------------------- |
-| Current-state context    | L1 – System context         |
-| Application landscape    | L2 – Application components |
-| Target SaaS context      | L1 – System context         |
-| Integration architecture | L2 – Logical integration    |
-| Data migration           | L2 – Migration flow         |
-| Security architecture    | L2 – Logical security       |
-| Environment architecture | L2 – Environment topology   |
-| NFR architecture         | L2 – Quality attributes     |
-| Shared responsibility    | Conceptual                  |
-| Decommissioning          | Conceptual transition       |
-
-# **5. My recommended order of production**
-
-As Client SA, I would create the diagrams in this order because each informs the next.
-
-1. **Current-State System Context**
-
-   Establish what exists and what is being replaced.
-2. **Current-State Application Landscape**
-
-   Understand the technical dependencies and legacy complexity.
-3. **Target SaaS Solution Context**
-
-   Establish the future solution boundary and enterprise ecosystem.
-4. **Target Integration Architecture**
-
-   Identify the interfaces that must be built or changed.
-5. **Data Migration Architecture**
-
-   Establish migration complexity and legacy data dependencies.
-6. **Security and NFR Architecture**
-
-   Establish the SaaS security and operational constraints.
-7. **Environment and Deployment Architecture**
-
-   Identify environment, release and connectivity requirements.
-8. **Responsibility and Transition Diagrams**
-
-   Establish operational ownership and retirement approach.
-
-**One important distinction:** Your target SaaS architecture diagram is a client-level conceptual architecture, not the vendor's final solution design. Ask the vendor to validate it, identify gaps and produce the detailed target architecture as part of their proposal.
-
-My suggestion is to maintain these diagrams in Visio using consistent shapes, colour coding and identifiers. Give every system, interface and component an ID (e.g. SYS-001, INT-001, DATA-001). Reuse those IDs in the integration catalogue, migration inventory and estimation workbook. This gives you end-to-end traceability from architecture to vendor cost.

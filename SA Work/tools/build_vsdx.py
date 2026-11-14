@@ -96,7 +96,7 @@ class Page:
                     rows += (f'<Row T="{"MoveTo" if i == 0 else "LineTo"}" IX="{i + 1}">'
                              f'<Cell N="X" V="{px - minx:.4f}"/><Cell N="Y" V="{py - miny:.4f}"/></Row>')
                 out.append(
-                    f'<Shape ID="{sid}" Type="Shape"><Cell N="PinX" V="{minx + w / 2:.4f}"/><Cell N="PinY" V="{miny + h / 2:.4f}"/>'
+                    f'<Shape ID="{sid}" Type="Shape" LineStyle="{STYLE}" FillStyle="{STYLE}" TextStyle="{STYLE}"><Cell N="PinX" V="{minx + w / 2:.4f}"/><Cell N="PinY" V="{miny + h / 2:.4f}"/>'
                     f'<Cell N="Width" V="{w:.4f}"/><Cell N="Height" V="{h:.4f}"/><Cell N="LocPinX" V="{w / 2:.4f}"/>'
                     f'<Cell N="LocPinY" V="{h / 2:.4f}"/><Cell N="LineColor" V="#404040"/><Cell N="LineWeight" V="0.012"/>'
                     f'<Cell N="LinePattern" V="{2 if it["dashed"] else 1}"/><Cell N="FillPattern" V="0"/>'
@@ -116,7 +116,7 @@ class Page:
             ha = {"l": 0, "c": 1}[it["align"]]
             style = 1 if it["bold"] else 0
             out.append(
-                f'<Shape ID="{sid}" Type="Shape"><Cell N="PinX" V="{x + w / 2:.4f}"/><Cell N="PinY" V="{y + h / 2:.4f}"/>'
+                f'<Shape ID="{sid}" Type="Shape" LineStyle="{STYLE}" FillStyle="{STYLE}" TextStyle="{STYLE}"><Cell N="PinX" V="{x + w / 2:.4f}"/><Cell N="PinY" V="{y + h / 2:.4f}"/>'
                 f'<Cell N="Width" V="{w:.4f}"/><Cell N="Height" V="{h:.4f}"/><Cell N="LocPinX" V="{w / 2:.4f}"/>'
                 f'<Cell N="LocPinY" V="{h / 2:.4f}"/>'
                 f'<Cell N="FillForegnd" V="{fill or "#FFFFFF"}"/><Cell N="FillPattern" V="{1 if fill else 0}"/>'
@@ -396,10 +396,97 @@ CT = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
       '<Default Extension="xml" ContentType="application/xml"/>'
       '<Override PartName="/visio/document.xml" ContentType="application/vnd.ms-visio.drawing.main+xml"/>'
       '<Override PartName="/visio/pages/pages.xml" ContentType="application/vnd.ms-visio.pages+xml"/>'
-      '{pages}</Types>')
+      '{pages}'
+      '<Override PartName="/visio/windows.xml" ContentType="application/vnd.ms-visio.windows+xml"/>'
+      '<Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/>'
+      '<Override PartName="/docProps/app.xml" ContentType="application/vnd.openxmlformats-officedocument.extended-properties+xml"/>'
+      '</Types>')
 REL = "http://schemas.openxmlformats.org/package/2006/relationships"
 VR = "http://schemas.microsoft.com/visio/2010/relationships"
 NS = 'xmlns="http://schemas.microsoft.com/office/visio/2012/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"'
+
+
+# Style chain mirrors what Visio writes: "No Style" (ID 0) is the ROOT and must NOT carry
+# LineStyle/FillStyle/TextStyle attributes (a self-reference makes Visio hang on open).
+# "Normal" (ID 3) inherits from 0 and is what every shape points at.
+STYLE = 3
+_ROOT_CELLS = "".join(f'<Cell N="{n}" V="{v}"/>' for n, v in [
+    ("EnableLineProps", 1), ("EnableFillProps", 1), ("EnableTextProps", 1), ("HideForApply", 0),
+    ("LineWeight", "0.01041666666666667"), ("LineColor", 0), ("LinePattern", 1), ("Rounding", 0),
+    ("EndArrowSize", 2), ("BeginArrow", 0), ("EndArrow", 0), ("LineCap", 0), ("BeginArrowSize", 2),
+    ("LineColorTrans", 0), ("CompoundType", 0),
+    ("FillForegnd", 1), ("FillBkgnd", 0), ("FillPattern", 1), ("ShdwForegnd", 0), ("ShdwPattern", 0),
+    ("FillForegndTrans", 0), ("FillBkgndTrans", 0), ("ShdwForegndTrans", 0), ("ShapeShdwType", 0),
+    ("ShapeShdwOffsetX", 0), ("ShapeShdwOffsetY", 0), ("ShapeShdwObliqueAngle", 0),
+    ("ShapeShdwScaleFactor", 1), ("ShapeShdwBlur", 0), ("ShapeShdwShow", 0),
+    ("LeftMargin", 0), ("RightMargin", 0), ("TopMargin", 0), ("BottomMargin", 0), ("VerticalAlign", 1),
+    ("TextBkgnd", 0), ("DefaultTabStop", "0.5"), ("TextDirection", 0), ("TextBkgndTrans", 0)])
+_ROOT_SECTIONS = (
+    '<Section N="Character"><Row IX="0"><Cell N="Font" V="Calibri"/><Cell N="Color" V="0"/><Cell N="Style" V="0"/>'
+    '<Cell N="Case" V="0"/><Cell N="Pos" V="0"/><Cell N="FontScale" V="1"/><Cell N="Size" V="0.1666666666666667"/>'
+    '<Cell N="DblUnderline" V="0"/><Cell N="Overline" V="0"/><Cell N="Strikethru" V="0"/><Cell N="DoubleStrikethrough" V="0"/>'
+    '<Cell N="Letterspace" V="0"/><Cell N="ColorTrans" V="0"/><Cell N="AsianFont" V="0"/><Cell N="ComplexScriptFont" V="0"/>'
+    '<Cell N="ComplexScriptSize" V="-1"/><Cell N="LangID" V="en-US"/></Row></Section>'
+    '<Section N="Paragraph"><Row IX="0"><Cell N="IndFirst" V="0"/><Cell N="IndLeft" V="0"/><Cell N="IndRight" V="0"/>'
+    '<Cell N="SpLine" V="-1.2"/><Cell N="SpBefore" V="0"/><Cell N="SpAfter" V="0"/><Cell N="HorzAlign" V="1"/>'
+    '<Cell N="Bullet" V="0"/><Cell N="BulletStr" V=""/><Cell N="BulletFont" V="0"/><Cell N="BulletFontSize" V="-1"/>'
+    '<Cell N="TextPosAfterBullet" V="0"/><Cell N="Flags" V="0"/></Row></Section>'
+    '<Section N="Tabs"><Row IX="0"/></Section>')
+DOC_XML = ('<?xml version="1.0" encoding="utf-8"?>'
+           f'<VisioDocument {NS} xml:space="preserve">'
+           f'<DocumentSettings TopPage="0" DefaultTextStyle="{STYLE}" DefaultLineStyle="{STYLE}" DefaultFillStyle="{STYLE}" DefaultGuideStyle="{STYLE}">'
+           '<GlueSettings>9</GlueSettings><SnapSettings>65847</SnapSettings><SnapExtensions>34</SnapExtensions><SnapAngles/>'
+           '<DynamicGridEnabled>1</DynamicGridEnabled><ProtectStyles>0</ProtectStyles><ProtectShapes>0</ProtectShapes>'
+           '<ProtectMasters>0</ProtectMasters><ProtectBkgnds>0</ProtectBkgnds></DocumentSettings>'
+           '<Colors><ColorEntry IX="24" RGB="#000000"/><ColorEntry IX="25" RGB="#FFFFFF"/></Colors>'
+           '<FaceNames><FaceName NameU="Calibri" UnicodeRanges="-469750017 -1040178053 9 0" CharSets="536871423 0" '
+           'Panose="2 15 5 2 2 2 4 3 2 4" Flags="357"/></FaceNames>'
+           '<StyleSheets>'
+           f'<StyleSheet ID="0" NameU="No Style" IsCustomNameU="1" Name="No Style" IsCustomName="1">{_ROOT_CELLS}{_ROOT_SECTIONS}</StyleSheet>'
+           f'<StyleSheet ID="{STYLE}" NameU="Normal" IsCustomNameU="1" Name="Normal" IsCustomName="1" LineStyle="0" FillStyle="0" TextStyle="0">'
+           '<Cell N="LeftMargin" V="0.05555555555555555"/><Cell N="RightMargin" V="0.05555555555555555"/>'
+           '<Cell N="TopMargin" V="0.05555555555555555"/><Cell N="BottomMargin" V="0.05555555555555555"/></StyleSheet>'
+           '</StyleSheets>'
+           '<DocumentSheet NameU="TheDoc" IsCustomNameU="1" Name="TheDoc" IsCustomName="1" LineStyle="0" FillStyle="0" TextStyle="0">'
+           '<Cell N="OutputFormat" V="0"/><Cell N="LockPreview" V="0"/><Cell N="AddMarkup" V="0"/><Cell N="ViewMarkup" V="0"/>'
+           '<Cell N="PreviewQuality" V="0"/><Cell N="PreviewScope" V="0"/><Cell N="DocLangID" V="en-US"/></DocumentSheet>'
+           '</VisioDocument>')
+
+WINDOWS_XML = ('<?xml version="1.0" encoding="utf-8"?>'
+               f'<Windows ClientWidth="1600" ClientHeight="900" {NS} xml:space="preserve">'
+               '<Window ID="0" WindowType="Drawing" WindowState="1073741824" WindowLeft="0" WindowTop="0" '
+               'WindowWidth="1600" WindowHeight="900" ContainerType="Page" Page="0" ViewScale="-1" '
+               f'ViewCenterX="{PW / 2}" ViewCenterY="{PH / 2}">'
+               '<ShowRulers>1</ShowRulers><ShowGrid>1</ShowGrid><ShowPageBreaks>0</ShowPageBreaks><ShowGuides>1</ShowGuides>'
+               '<ShowConnectionPoints>1</ShowConnectionPoints><GlueSettings>9</GlueSettings><SnapSettings>65847</SnapSettings>'
+               '<SnapExtensions>34</SnapExtensions><SnapAngles/><DynamicGridEnabled>1</DynamicGridEnabled>'
+               '<TabSplitterPos>0.5</TabSplitterPos></Window></Windows>')
+
+
+def app_xml(pages):
+    names = "".join(f"<vt:lpstr>{escape(p.name)}</vt:lpstr>" for p in pages)
+    return ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties" '
+            'xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes">'
+            '<Template></Template><Application>Microsoft Visio</Application><ScaleCrop>false</ScaleCrop>'
+            '<HeadingPairs><vt:vector size="2" baseType="variant"><vt:variant><vt:lpstr>Pages</vt:lpstr></vt:variant>'
+            f'<vt:variant><vt:i4>{len(pages)}</vt:i4></vt:variant></vt:vector></HeadingPairs>'
+            f'<TitlesOfParts><vt:vector size="{len(pages)}" baseType="lpstr">{names}</vt:vector></TitlesOfParts>'
+            '<LinksUpToDate>false</LinksUpToDate><SharedDoc>false</SharedDoc><HyperlinksChanged>false</HyperlinksChanged>'
+            '<AppVersion>16.0000</AppVersion></Properties>')
+
+
+def core_xml():
+    import datetime
+    now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+            '<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" '
+            'xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" '
+            'xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
+            '<dc:title>SaaS Replacement Discovery Pack</dc:title><dc:creator>build_vsdx.py</dc:creator>'
+            f'<dcterms:created xsi:type="dcterms:W3CDTF">{now}</dcterms:created>'
+            f'<dcterms:modified xsi:type="dcterms:W3CDTF">{now}</dcterms:modified>'
+            '<dc:language>en-US</dc:language></cp:coreProperties>')
 
 
 def write_vsdx(pages, path):
@@ -408,15 +495,32 @@ def write_vsdx(pages, path):
             f'<Override PartName="/visio/pages/page{i + 1}.xml" ContentType="application/vnd.ms-visio.page+xml"/>'
             for i in range(len(pages)))))
         z.writestr("_rels/.rels", f'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="{REL}">'
-                                  f'<Relationship Id="rId1" Type="{VR}/document" Target="visio/document.xml"/></Relationships>')
-        z.writestr("visio/document.xml", f'<?xml version="1.0" encoding="utf-8"?><VisioDocument {NS}><DocumentSettings/></VisioDocument>')
+                                  f'<Relationship Id="rId1" Type="{VR}/document" Target="visio/document.xml"/>'
+                                  f'<Relationship Id="rId2" Type="{REL}/metadata/core-properties" Target="docProps/core.xml"/>'
+                                  '<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/>'
+                                  '</Relationships>')
+        z.writestr("docProps/core.xml", core_xml())
+        z.writestr("docProps/app.xml", app_xml(pages))
+        z.writestr("visio/document.xml", DOC_XML)
         z.writestr("visio/_rels/document.xml.rels", f'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="{REL}">'
-                                                    f'<Relationship Id="rId1" Type="{VR}/pages" Target="pages/pages.xml"/></Relationships>')
+                                                    f'<Relationship Id="rId1" Type="{VR}/pages" Target="pages/pages.xml"/>'
+                                                    f'<Relationship Id="rId2" Type="{VR}/windows" Target="windows.xml"/></Relationships>')
+        z.writestr("visio/windows.xml", WINDOWS_XML)
         pg = "".join(
-            f'<Page ID="{i}" NameU="{escape(p.name)}" Name="{escape(p.name)}"><PageSheet>'
-            f'<Cell N="PageWidth" V="{PW}"/><Cell N="PageHeight" V="{PH}"/></PageSheet><Rel r:id="rId{i + 1}"/></Page>'
+            f'<Page ID="{i}" NameU="{escape(p.name)}" Name="{escape(p.name)}" ViewScale="-1" ViewCenterX="{PW / 2}" ViewCenterY="{PH / 2}">'
+            f'<PageSheet LineStyle="0" FillStyle="0" TextStyle="0">'
+            f'<Cell N="PageWidth" V="{PW}"/><Cell N="PageHeight" V="{PH}"/>'
+            '<Cell N="ShdwOffsetX" V="0.125"/><Cell N="ShdwOffsetY" V="-0.125"/>'
+            '<Cell N="PageScale" V="1" U="IN_F"/><Cell N="DrawingScale" V="1" U="IN_F"/>'
+            '<Cell N="DrawingSizeType" V="0"/><Cell N="DrawingScaleType" V="0"/><Cell N="InhibitSnap" V="0"/>'
+            '<Cell N="UIVisibility" V="0"/><Cell N="ShdwType" V="0"/><Cell N="ShdwObliqueAngle" V="0"/>'
+            '<Cell N="PageLockReplace" V="0" U="BOOL"/><Cell N="PageLockDuplicate" V="0" U="BOOL"/>'
+            '<Cell N="ShdwScaleFactor" V="1"/><Cell N="DrawingResizeType" V="1"/><Cell N="RouteStyle" V="0"/>'
+            '<Cell N="PageShapeSplit" V="1"/>'
+            '<Cell N="XRulerOrigin" V="0"/><Cell N="YRulerOrigin" V="0"/><Cell N="XGridOrigin" V="0"/><Cell N="YGridOrigin" V="0"/>'
+            f'</PageSheet><Rel r:id="rId{i + 1}"/></Page>'
             for i, p in enumerate(pages))
-        z.writestr("visio/pages/pages.xml", f'<?xml version="1.0" encoding="utf-8"?><Pages {NS}>{pg}</Pages>')
+        z.writestr("visio/pages/pages.xml", f'<?xml version="1.0" encoding="utf-8"?><Pages {NS} xml:space="preserve">{pg}</Pages>')
         z.writestr("visio/pages/_rels/pages.xml.rels", f'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="{REL}">'
                    + "".join(f'<Relationship Id="rId{i + 1}" Type="{VR}/page" Target="page{i + 1}.xml"/>' for i in range(len(pages)))
                    + "</Relationships>")
